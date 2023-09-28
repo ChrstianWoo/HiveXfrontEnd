@@ -1,0 +1,34 @@
+{
+    "users": [
+      {
+        "email": "andrew.soen@gmail.com",
+        "password": "hello123",
+        "firstName": "Andrew",
+        "lastName": "Soen",
+        "address": "Kingsford"
+
+      },
+      {
+        "email": "kabilan.tiburitus@gmail.com",
+        "password": "hello123",
+        "firstName": "Kabilan",
+        "lastName": "Tiburitus",
+        "address": "Randwick"
+      },
+      {
+        "email": "dylan.catterall@gmail.com",
+        "password": "hello123",
+        "firstName": "Dylan",
+        "lastName": "Catterall",
+        "address": "Mascot"
+      },
+      {
+        "email": "christian.wu@gmail.com",
+        "password": "hello123",
+        "firstName": "Chistian",
+        "lastName": "Wu",
+        "address": "Redfern"
+      }
+    ]
+  }
+  

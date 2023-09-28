@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const DashboardPage = () => {
+export const LogOutPage = () => {
   return <div></div>;
 };
