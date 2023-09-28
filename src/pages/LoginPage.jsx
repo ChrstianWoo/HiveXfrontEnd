@@ -26,7 +26,7 @@ export const LoginPage = (loginPageProps) => {
       if (user.password === loginData.password) {
         setError('');
         loginPageProps.handleLogin();
-        navigate('/');
+        navigate('/dashboard');
       } else {
         setError('Incorrect email or password!');
       }
@@ -35,11 +35,13 @@ export const LoginPage = (loginPageProps) => {
     }
   };
 
+  const isSignInDisabled = !loginData.email || !loginData.password;
+
   return (
     <section className="bg-gradient-to-b from-yellow-400 to-purple-700 dark:bg-gradient-to-b dark:from-yellow-400 dark:to-purple-700">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-          <img className="w-28 h-15 mr-0" src={process.env.PUBLIC_URL + '/assets/hiveX.png'} alt="goMartLogo" />
+          <img className="w-28 h-15 mr-0" src={process.env.PUBLIC_URL + '/assets/hiveX.png'} alt="hiveXLogo" />
         </a>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -94,7 +96,8 @@ export const LoginPage = (loginPageProps) => {
               </div>
               <button
                 type="submit"
-                className="w-full text-white bg-purple-700 hover:bg-purple-500 active:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                className={`w-full text-white bg-purple-700 hover:bg-purple-500 active:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 ${isSignInDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+                disabled={isSignInDisabled}
               >
                 Sign in
               </button>

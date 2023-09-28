@@ -31,7 +31,7 @@ export const RegisterPage = (RegisterPageProps) => {
     <section className="bg-gradient-to-b from-yellow-400 to-purple-700 dark:bg-gradient-to-b dark:from-yellow-400 dark:to-purple-700">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-          <img className="w-28 h-15 mr-0" src={process.env.PUBLIC_URL + '/assets/hiveX.png'} alt="goMartLogo" />
+          <img className="w-28 h-15 mr-0" src={process.env.PUBLIC_URL + '/assets/hiveX.png'} alt="hiveXLogo" />
         </a>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -88,6 +88,14 @@ export const RegisterPage = (RegisterPageProps) => {
               >
                 Sign in
               </button>
+              <center>
+                <a
+                    onClick={() => navigate('/login')}
+                    className="cursor-pointer font-medium text-center text-primary-600 hover:underline text-purple-700 hover:text-purple-500"
+                    >
+                    Return to Login
+                </a>
+              </center>
             </form>
           </div>
         </div>
