@@ -26,7 +26,7 @@ export const LoginPage = (loginPageProps) => {
       if (user.password === loginData.password) {
         setError('');
         loginPageProps.handleLogin();
-        navigate('/dashboard');
+        navigate('/');
       } else {
         setError('Incorrect email or password!');
       }

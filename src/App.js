@@ -50,7 +50,7 @@ function App() {
         />
        <Route path="/login" element={<LoginPage handleLogin={handleLogin} />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/" element={<DashboardPage />} />
       <Route path="/forgot-pass" element={<ForgotPasswordPage />} />
       <Route path="/logout" element={<LogOutPage />} />
       <Route path="/register" element={<RegisterPage />} />
