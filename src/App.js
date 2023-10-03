@@ -7,6 +7,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { ForgotPasswordPage} from './pages/ForgotPasswordPage';
 import { LogOutPage } from './pages/LogOutPage';
 import { RegisterPage } from './pages/RegisterPage';
+import { BrokerDashboard } from './pages/BrokerDashboard';
 
 const ProtectedRoute = ({ isLoggedIn, redirectPath = '/login', children }) => {
   console.log(isLoggedIn);
@@ -54,6 +55,7 @@ function App() {
       <Route path="/forgot-pass" element={<ForgotPasswordPage />} />
       <Route path="/logout" element={<LogOutPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/broker-dashboard" element={<BrokerDashboard />} />
     </Routes>
   );
 }

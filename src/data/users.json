@@ -5,29 +5,56 @@
         "password": "hello123",
         "firstName": "Andrew",
         "lastName": "Soen",
-        "address": "Kingsford"
-
+        "address": "Kingsford",
+        "dateOfBirth": "2004-04-08"
       },
       {
         "email": "kabilan.tiburitus@gmail.com",
         "password": "hello123",
         "firstName": "Kabilan",
         "lastName": "Tiburitus",
-        "address": "Randwick"
+        "address": "Randwick",
+        "dateOfBirth": "2002-03-02"
       },
       {
         "email": "dylan.catterall@gmail.com",
         "password": "hello123",
         "firstName": "Dylan",
         "lastName": "Catterall",
-        "address": "Mascot"
+        "address": "Mascot",
+        "dateOfBirth": "2002-03-03"
       },
       {
         "email": "christian.wu@gmail.com",
         "password": "hello123",
         "firstName": "Chistian",
         "lastName": "Wu",
-        "address": "Redfern"
+        "address": "Redfern",
+        "dateOfBirth": "2001-02-02"
+      },
+      {
+        "email": "tausif.chowdhury@gmail.com",
+        "password": "hello123",
+        "firstName": "Tausif",
+        "lastName": "Chowdhury",
+        "address": "Redfern",
+        "dateOfBirth": "2001-02-02"
+      },
+      {
+        "email": "nicole.pacheco@gmail.com",
+        "password": "hello123",
+        "firstName": "Nicole",
+        "lastName": "Pacheco",
+        "address": "Redfern",
+        "dateOfBirth": "2001-02-02"
+      },
+      {
+        "email": "tommy.yang@gmail.com",
+        "password": "hello123",
+        "firstName": "Tommy",
+        "lastName": "yang",
+        "address": "Redfern",
+        "dateOfBirth": "2001-02-02"
       }
     ]
   }

@@ -9,22 +9,41 @@ export const RegisterPage = (RegisterPageProps) => {
     email: '',
     password: '',
     confirmPassword: '',
+    dateOfBirth: '', // Added Date of Birth field
   });
+
+  const [errorMessage, setErrorMessage] = useState(''); // State for error message
 
   const handleRegisterDataChange = (e) => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
-    console.log(registerData);
+    setErrorMessage(''); // Clear any previous error message
   };
 
   const submitRegister = (e) => {
     e.preventDefault();
     const usersArray = users.users;
-    console.log('register credentials submitted');
+    
+    // Validate Date of Birth
+    const currentDate = new Date();
+    const birthDate = new Date(registerData.dateOfBirth);
+    const age = currentDate.getFullYear() - birthDate.getFullYear();
 
-    //check if email exist already in the user database
-    //check if the password and the confirm password is the same
-    //non funcitonal - character check ensure that the passowrd is strong and contains a variety of bla blabla
-    //error - password doesnt match, email already exist in go mart
+    if (age < 18) {
+      setErrorMessage('You must be at least 18 years old to register.');
+      return;
+    }
+
+    // Validate Password and Confirm Password
+    if (registerData.password !== registerData.confirmPassword) {
+      setErrorMessage('Passwords do not match. Please try again.');
+      return;
+    }
+
+    // Handle form submission and further processing here
+    console.log('register credentials submitted');
+    
+    // After successful registration, navigate to the login page
+    navigate('/login');
   };
 
   return (
@@ -36,9 +55,10 @@ export const RegisterPage = (RegisterPageProps) => {
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Register Your Account</h1>
+            {errorMessage && <p className="text-red-500 text-sm mt-2">{errorMessage}</p>} {/* Display error message */}
             <form className="space-y-4 md:space-y-6" action="#" onSubmit={submitRegister}>
               <div>
-                <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Your email
                 </label>
                 <input
@@ -53,7 +73,7 @@ export const RegisterPage = (RegisterPageProps) => {
                 />
               </div>
               <div>
-                <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Password
                 </label>
                 <input
@@ -68,16 +88,30 @@ export const RegisterPage = (RegisterPageProps) => {
                 />
               </div>
               <div>
-                <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label htmlFor="confirmPassword" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Confirm Password
                 </label>
                 <input
-                  type="confirmPassword"
+                  type="password"
                   name="confirmPassword"
                   value={registerData.confirmPassword}
                   id="confirmPassword"
                   onChange={handleRegisterDataChange}
                   placeholder="••••••••"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required={true}
+                />
+              </div>
+              <div>
+                <label htmlFor="dateOfBirth" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Date of Birth
+                </label>
+                <input
+                  type="date"
+                  name="dateOfBirth"
+                  value={registerData.dateOfBirth}
+                  id="dateOfBirth"
+                  onChange={handleRegisterDataChange}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required={true}
                 />
@@ -90,10 +124,10 @@ export const RegisterPage = (RegisterPageProps) => {
               </button>
               <center>
                 <a
-                    onClick={() => navigate('/login')}
-                    className="cursor-pointer font-medium text-center text-primary-600 hover:underline text-purple-700 hover:text-purple-500"
-                    >
-                    Return to Login
+                  onClick={() => navigate('/login')}
+                  className="cursor-pointer font-medium text-center text-primary-600 hover:underline text-purple-700 hover:text-purple-500"
+                >
+                  Return to Login
                 </a>
               </center>
             </form>
@@ -103,3 +137,4 @@ export const RegisterPage = (RegisterPageProps) => {
     </section>
   );
 };
+

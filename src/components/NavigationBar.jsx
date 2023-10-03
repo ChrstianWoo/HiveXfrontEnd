@@ -23,8 +23,8 @@ const NavigationBar = () => {
           </div>
           <div className="flex items-center space-x-4">
             <img src="assets/profile-logo.png" alt="Profile Logo" className="w-10 h-10 rounded-full" />
-            <Link to="/broker-page" className="btn-outline-blue">Switch to Broker</Link>
-            <Link to="/login" className="btn-outline-blue">Sign Out</Link>
+            <Link to="/broker" className="btn-outline-blue">Switch to Broker</Link>
+            <Link to="/logout" className="btn-outline-blue">Sign Out</Link>
           </div>
         {/* Hamburger button */}
         <button
