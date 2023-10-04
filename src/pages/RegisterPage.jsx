@@ -38,6 +38,12 @@ export const RegisterPage = (RegisterPageProps) => {
       setErrorMessage('Passwords do not match. Please try again.');
       return;
     }
+    
+    const isEmailExists = usersArray.some(user => user.email === registerData.email);
+    if (isEmailExists) {
+      setErrorMessage('This email is already registered. Please use a different email.');
+      return;
+    }
 
     // Handle form submission and further processing here
     console.log('register credentials submitted');

@@ -13,7 +13,7 @@ const NavigationBar = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <Link to="/">
-            <img src="assets/hiveX.png" alt="Logo" className="w-12 h-12" />
+            <img src="assets/hiveX.png" alt="Logo" className="w-13 h-12" />
           </Link>
         </div>
         <div className="flex items-center space-x-4">
@@ -23,7 +23,7 @@ const NavigationBar = () => {
           </div>
           <div className="flex items-center space-x-4">
             <img src="assets/profile-logo.png" alt="Profile Logo" className="w-10 h-10 rounded-full" />
-            <Link to="/broker" className="btn-outline-blue">Switch to Broker</Link>
+            <Link to="/broker-dashboard" className="btn-outline-blue">Switch to Broker</Link>
             <Link to="/logout" className="btn-outline-blue">Sign Out</Link>
           </div>
         {/* Hamburger button */}

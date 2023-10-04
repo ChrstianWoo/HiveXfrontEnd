@@ -49,8 +49,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-       <Route path="/login" element={<LoginPage handleLogin={handleLogin} />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage handleLogin={handleLogin} />} />
       <Route path="/" element={<DashboardPage />} />
       <Route path="/forgot-pass" element={<ForgotPasswordPage />} />
       <Route path="/logout" element={<LogOutPage />} />

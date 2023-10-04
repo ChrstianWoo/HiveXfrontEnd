@@ -1,0 +1,25 @@
+/* DashboardPage.css */
+.coupon-box {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .coupon-info {
+    background-color: #17a2b8; /* Blue color for info coupons */
+    color: white;
+  }
+  
+  .coupon-success {
+    background-color: #28a745; /* Green color for success coupons */
+    color: white;
+  }
+  
+  .coupon-warning {
+    background-color: #ffc107; /* Yellow color for warning coupons */
+    color: #333;
+  }
+  
