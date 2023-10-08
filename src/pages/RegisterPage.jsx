@@ -10,6 +10,7 @@ export const RegisterPage = (RegisterPageProps) => {
     password: '',
     confirmPassword: '',
     dateOfBirth: '', // Added Date of Birth field
+    accountType: 'member',
   });
 
   const [errorMessage, setErrorMessage] = useState(''); // State for error message
@@ -49,7 +50,13 @@ export const RegisterPage = (RegisterPageProps) => {
     console.log('register credentials submitted');
     
     // After successful registration, navigate to the login page
-    navigate('/login');
+    if (registerData.accountType === 'member') {
+      navigate('/'); // Replace with the actual URL for the member account dashboard
+    } else if (registerData.accountType === 'broker') {
+      navigate('/broker-dashboard'); // Replace with the actual URL for the broker account dashboard
+    } else if (registerData.accountType === 'venue') {
+      navigate('/venue-dashboard');
+    }
   };
 
   return (
@@ -121,6 +128,21 @@ export const RegisterPage = (RegisterPageProps) => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required={true}
                 />
+              </div>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Choose Account Type
+                </label>
+                <select
+                  name="accountType"
+                  value={registerData.accountType}
+                  onChange={handleRegisterDataChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required={true}
+                >
+                  <option value="member">Member Account</option>
+                  <option value="venue">Venue Account</option>
+                </select>
               </div>
               <button
                 type="submit"

@@ -6,7 +6,9 @@
         "firstName": "Andrew",
         "lastName": "Soen",
         "address": "Kingsford",
-        "dateOfBirth": "2004-04-08"
+        "dateOfBirth": "2004-04-08",
+        "accountType": "member"
+
       },
       {
         "email": "kabilan.tiburitus@gmail.com",
@@ -14,7 +16,8 @@
         "firstName": "Kabilan",
         "lastName": "Tiburitus",
         "address": "Randwick",
-        "dateOfBirth": "2002-03-02"
+        "dateOfBirth": "2002-03-02",
+        "accountType": "wadidaw"
       },
       {
         "email": "dylan.catterall@gmail.com",
@@ -22,7 +25,8 @@
         "firstName": "Dylan",
         "lastName": "Catterall",
         "address": "Mascot",
-        "dateOfBirth": "2002-03-03"
+        "dateOfBirth": "2002-03-03",
+        "accountType": "venue"
       },
       {
         "email": "christian.wu@gmail.com",
@@ -30,7 +34,8 @@
         "firstName": "Chistian",
         "lastName": "Wu",
         "address": "Redfern",
-        "dateOfBirth": "2001-02-02"
+        "dateOfBirth": "2001-02-02",
+        "accountType": "venue"
       },
       {
         "email": "tausif.chowdhury@gmail.com",
@@ -38,7 +43,8 @@
         "firstName": "Tausif",
         "lastName": "Chowdhury",
         "address": "Redfern",
-        "dateOfBirth": "2001-02-02"
+        "dateOfBirth": "2001-02-02",
+        "accountType": "broker"
       },
       {
         "email": "nicole.pacheco@gmail.com",
@@ -46,7 +52,8 @@
         "firstName": "Nicole",
         "lastName": "Pacheco",
         "address": "Redfern",
-        "dateOfBirth": "2001-02-02"
+        "dateOfBirth": "2001-02-02",
+        "accountType": "member"
       },
       {
         "email": "tommy.yang@gmail.com",
@@ -54,7 +61,8 @@
         "firstName": "Tommy",
         "lastName": "yang",
         "address": "Redfern",
-        "dateOfBirth": "2001-02-02"
+        "dateOfBirth": "2001-02-02",
+        "accountType": "broker"
       }
     ]
   }

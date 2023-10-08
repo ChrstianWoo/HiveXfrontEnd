@@ -26,7 +26,15 @@ export const LoginPage = (loginPageProps) => {
       if (user.password === loginData.password) {
         setError('');
         loginPageProps.handleLogin();
-        navigate('/');
+        if (user.accountType === 'member') {
+          navigate('/');
+        } else if (user.accountType === 'broker') {
+          navigate('/broker-dashboard');
+        } else if (user.accountType === 'venue') {
+          navigate('/venue-dashboard');
+        } else {
+          setError('Invalid account type.');
+        }
       } else {
         setError('Incorrect email or password!');
       }

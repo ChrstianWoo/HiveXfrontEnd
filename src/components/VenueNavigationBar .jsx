@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const NavigationBar = () => {
+const VenueNavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -25,7 +25,7 @@ const NavigationBar = () => {
             <Link to="/my-wallet" className="text-purple-400 hover:text-purple-700 link-with-underline">My Wallet</Link>
           <div className="flex items-center space-x-4">
             <img src="assets/profile-logo.png" alt="Profile Logo" className="w-10 h-10 rounded-full" />
-            <Link to="/broker-dashboard" className="btn-outline-blue">Switch to Broker</Link>
+            <Link to="" className="btn-outline-blue">Still to be decide</Link>
             <Link to="/logout" className="btn-outline-blue">Account Sign Out</Link>
           </div>
         </div>
@@ -70,4 +70,4 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar;
+export default VenueNavigationBar;

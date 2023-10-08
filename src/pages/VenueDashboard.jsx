@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BroNavbar from '../components/BrokerNavigationBar';
+import VenNavbar from '../components/VenueNavigationBar ';
 
-export const BrokerDashboard = () => {
+export const VenueDashboard = () => {
   return (
     <div className="bg-gray-100 h-screen">
-      <BroNavbar />
+      <VenNavbar />
     </div>
   );
 };
