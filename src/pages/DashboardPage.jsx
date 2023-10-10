@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import Navbar from '../components/NavigationBar';
 import './memberDashboardPage/DashboardPage.css';
 import { Carousel } from 'react-responsive-carousel';
@@ -24,6 +25,27 @@ export const DashboardPage = () => {
     // Add more months as needed
   ];
 
+  const couponData = [
+    {
+      imageSrc: 'assets/hiveX.png',
+      title: 'Coupon 1',
+      description: 'Get 20% off on your next purchase.',
+      linkTo: '/coupon-1', // Link to the desired page
+    },
+    {
+      imageSrc: 'assets/hiveX.png',
+      title: 'Coupon 2',
+      description: 'Save $10 on your order.',
+      linkTo: '/coupon-2', // Link to the desired page
+    },
+    {
+      imageSrc: 'assets/hiveX.png',
+      title: 'Coupon 3',
+      description: 'Buy 1 Get 1 Free on select items.',
+      linkTo: '/coupon-3', // Link to the desired page
+    },
+  ];
+
   return (
     <div className="bg-gray-100 h-screen">
       <Navbar />
@@ -44,24 +66,17 @@ export const DashboardPage = () => {
                   showStatus={false}
                   showThumbs={false}
                 >
-                  <div>
-                    <div className="coupon-box coupon-info">
-                      <h3>Coupon 1</h3>
-                      <p>Get 20% off on your next purchase.</p>
+                  {couponData.map((coupon, index) => (
+                    <div key={index}>
+                      <Link to={coupon.linkTo}>
+                        <img src={coupon.imageSrc} alt={coupon.title} />
+                      </Link>
+                      <div className="coupon-box coupon-info">
+                        <h3>{coupon.title}</h3>
+                        <p>{coupon.description}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <div className="coupon-box coupon-success">
-                      <h3>Coupon 2</h3>
-                      <p>Save $10 on your order.</p>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="coupon-box coupon-warning">
-                      <h3>Coupon 3</h3>
-                      <p>Buy 1 Get 1 Free on select items.</p>
-                    </div>
-                  </div>
+                  ))}
                 </Carousel>
               </div>
             </div>

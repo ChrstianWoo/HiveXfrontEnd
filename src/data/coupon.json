@@ -1,0 +1,26 @@
+{
+    "coupon" : [
+        {
+          "id": 1,
+          "imageSrc": "coupon-image-1.jpg",
+          "title": "Coupon 1",
+          "description": "Get 20% off on your next purchase.",
+          "linkTo": "/coupon-1"
+        },
+        {
+          "id": 2,
+          "imageSrc": "coupon-image-2.jpg",
+          "title": "Coupon 2",
+          "description": "Save $10 on your order.",
+          "linkTo": "/coupon-2"
+        },
+        {
+          "id": 3,
+          "imageSrc": "coupon-image-3.jpg",
+          "title": "Coupon 3",
+          "description": "Buy 1 Get 1 Free on select items.",
+          "linkTo": "/coupon-3"
+        }
+      ]
+      
+}

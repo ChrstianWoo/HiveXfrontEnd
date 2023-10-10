@@ -17,7 +17,7 @@
         "lastName": "Tiburitus",
         "address": "Randwick",
         "dateOfBirth": "2002-03-02",
-        "accountType": "wadidaw"
+        "accountType": "invalid"
       },
       {
         "email": "dylan.catterall@gmail.com",
@@ -35,7 +35,7 @@
         "lastName": "Wu",
         "address": "Redfern",
         "dateOfBirth": "2001-02-02",
-        "accountType": "venue"
+        "accountType": "broker"
       },
       {
         "email": "tausif.chowdhury@gmail.com",
