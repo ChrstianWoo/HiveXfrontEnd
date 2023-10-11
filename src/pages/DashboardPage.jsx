@@ -69,7 +69,7 @@ export const DashboardPage = () => {
                   {couponData.map((coupon, index) => (
                     <div key={index}>
                       <Link to={coupon.linkTo}>
-                        <img src={coupon.imageSrc} alt={coupon.title} />
+                        <img src={coupon.imageSrc} alt={coupon.title} className="w-12 h-12"/>
                       </Link>
                       <div className="coupon-box coupon-info">
                         <h3>{coupon.title}</h3>
