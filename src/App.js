@@ -7,6 +7,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { ForgotPasswordPage} from './pages/ForgotPasswordPage';
 import { LogOutPage } from './pages/LogOutPage';
 import { RegisterPage } from './pages/RegisterPage';
+import { VenueRegister } from './pages/VenueRegister';
 import { BrokerDashboard } from './pages/BrokerDashboard';
 import { VenueDashboard } from './pages/VenueDashboard';
 
@@ -57,6 +58,7 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/broker-dashboard" element={<BrokerDashboard />} />
       <Route path="/venue-dashboard" element={<VenueDashboard />} />
+      <Route path="/venue-register" element={<VenueRegister />} />
     </Routes>
   );
 }

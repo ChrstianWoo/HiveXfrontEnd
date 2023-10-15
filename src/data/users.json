@@ -3,65 +3,58 @@
       {
         "email": "andrew.soen@gmail.com",
         "password": "hello123",
-        "firstName": "Andrew",
-        "lastName": "Soen",
-        "address": "Kingsford",
-        "dateOfBirth": "2004-04-08",
+        "fullName": "Andrew Soen",
+        "mobileNumber": "0403282707",
+        "ageRange": "18-21",
         "accountType": "member"
 
       },
       {
         "email": "kabilan.tiburitus@gmail.com",
         "password": "hello123",
-        "firstName": "Kabilan",
-        "lastName": "Tiburitus",
-        "address": "Randwick",
-        "dateOfBirth": "2002-03-02",
+        "fullName": "Kabilan Tiburitus",
+        "mobileNumber": "1234567890",
+        "ageRange": "18-21",
         "accountType": "invalid"
       },
       {
         "email": "dylan.catterall@gmail.com",
         "password": "hello123",
-        "firstName": "Dylan",
-        "lastName": "Catterall",
-        "address": "Mascot",
-        "dateOfBirth": "2002-03-03",
+        "fullName": "Dylan Catterall",
+        "mobileNumber": "1234567890",
+        "ageRange": "18-21",
         "accountType": "venue"
       },
       {
         "email": "christian.wu@gmail.com",
         "password": "hello123",
-        "firstName": "Chistian",
-        "lastName": "Wu",
-        "address": "Redfern",
-        "dateOfBirth": "2001-02-02",
+        "fullName": "Chistian Wu",
+        "mobileNumber": "1234567890",
+        "ageRange": "18-21",
         "accountType": "broker"
       },
       {
         "email": "tausif.chowdhury@gmail.com",
         "password": "hello123",
-        "firstName": "Tausif",
-        "lastName": "Chowdhury",
-        "address": "Redfern",
-        "dateOfBirth": "2001-02-02",
+        "fullName": "Tausif Chowdhury",
+        "mobileNumber": "1234567890",
+        "ageRange": "18-21",
         "accountType": "broker"
       },
       {
         "email": "nicole.pacheco@gmail.com",
         "password": "hello123",
-        "firstName": "Nicole",
-        "lastName": "Pacheco",
-        "address": "Redfern",
-        "dateOfBirth": "2001-02-02",
+        "fullName": "Nicole Pacheco",
+        "mobileNumber": "1234567890",
+        "ageRange": "18-21",
         "accountType": "member"
       },
       {
         "email": "tommy.yang@gmail.com",
         "password": "hello123",
-        "firstName": "Tommy",
-        "lastName": "yang",
-        "address": "Redfern",
-        "dateOfBirth": "2001-02-02",
+        "fullName": "Tommy yang",
+        "mobileNumber": "1234567890",
+        "ageRange": "18-21",
         "accountType": "broker"
       }
     ]

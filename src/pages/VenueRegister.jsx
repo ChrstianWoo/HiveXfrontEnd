@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import users from '../data/users.json';
 import { useNavigate } from 'react-router-dom';
 
-export const RegisterPage = () => {
-  const navigate = useNavigate();
+export const VenueRegister = () => {
+const navigate = useNavigate();
 
   const [registerData, setRegisterData] = useState({
     email: '',
@@ -12,15 +12,10 @@ export const RegisterPage = () => {
     fullName: '', // First Name field
     mobileNumber: '', // Mobile Number field
     ageRange: '18-21', // Age range dropdown
-    accountType: 'member',
+    accountType: 'venue',
   });
 
   const [errorMessage, setErrorMessage] = useState(''); // State for error message
-
-  const handleRegisterDataChange = (e) => {
-    setRegisterData({ ...registerData, [e.target.name]: e.target.value });
-    setErrorMessage(''); // Clear any previous error message
-  };
 
   const submitRegister = (e) => {
     e.preventDefault();
@@ -58,6 +53,11 @@ export const RegisterPage = () => {
     }
     
   };
+  const handleRegisterDataChange = (e) => {
+    setRegisterData({ ...registerData, [e.target.name]: e.target.value });
+    setErrorMessage(''); // Clear any previous error message
+  };
+
   const [showPopup, setShowPopup] = useState(false);
   const openPopup = () => {
     setShowPopup(true);
@@ -74,16 +74,16 @@ export const RegisterPage = () => {
         </a>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Register Your Member Account</h1>
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Register Your Venue Account</h1>
             <a
               onClick={openPopup}
               className="cursor-pointer font-medium text-center text-primary-600 hover:underline text-purple-700 hover-text-purple-500"
             >
-              What is a Member?
+              What is a Venue?
             </a>
             {errorMessage && <p className="text-red-500 text-sm mt-2">{errorMessage}</p>} {/* Display error message */}
             <form className="space-y-4 md:space-y-6" action="#" onSubmit={submitRegister}>
-              <div>
+                <div>
                 <label htmlFor="fullName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Full Name
                 </label>
@@ -129,28 +129,6 @@ export const RegisterPage = () => {
                 />
               </div>
               <div>
-                <label htmlFor="ageRange" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Age Range
-                </label>
-                <select
-                  name="ageRange"
-                  value={registerData.ageRange}
-                  id="ageRange"
-                  onChange={handleRegisterDataChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required={true}
-                >
-                  <option value=">13">Under 13</option>
-                  <option value="13-17">13-17</option>
-                  <option value="18-21">18-21</option>
-                  <option value="22-30">22-30</option>
-                  <option value="31-40">31-40</option>
-                  <option value="41-50">41-50</option>
-                  <option value="51-60">51-60</option>
-                  <option value="60+">60 and above</option>
-                </select>
-              </div>
-              <div>
                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Password
                 </label>
@@ -180,6 +158,21 @@ export const RegisterPage = () => {
                   required={true}
                 />
               </div>
+              <div>
+                <label htmlFor="venueDescription" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Tell Us About Your Venue
+                </label>
+                <textarea
+                name="venueDescription"
+                value={registerData.venueDescription}
+                id="venueDescription"
+                onChange={handleRegisterDataChange}
+                rows="4" // You can adjust the number of rows as needed
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Tell us about your venue..."
+                required={true}
+                />
+            </div>
               <button
                 type="submit"
                 className="w-full text-white bg-purple-700 hover:bg-purple-500 active-bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark-bg-primary-600 dark-hover-bg-primary-700 dark-focus-ring-primary-800"
@@ -196,9 +189,9 @@ export const RegisterPage = () => {
               </center>
               <center>
                 <p className="text-sm font-bold text-gray-500 dark:text-gray-400">
-                  I'm a VENUE and I'm interested in HiveX.{' '}
+                  Back to registering member account?{' '}
                   <a
-                    onClick={() => navigate('/venue-register')} // Replace with the actual URL or route
+                    onClick={() => navigate('/register')} // Replace with the actual URL or route
                     className="cursor-pointer font-medium text-primary-600 hover:underline text-purple-700 hover-text-purple-500"
                   >
                     Click here
@@ -212,9 +205,9 @@ export const RegisterPage = () => {
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
           <div className="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-50" onClick={closePopup}></div>
           <div className="relative bg-white w-full md:w-96 p-6 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <h1 className="text-2xl font-bold text-purple-700 mb-4">Perks of Being a Member</h1>
+            <h1 className="text-2xl font-bold text-purple-700 mb-4">Perks of Being a Venue</h1>
             <p className="text-gray-900 dark:text-white">
-              { "Being a member is that it offers convenience and variety of offers. Ideal for group orders, making it easy to coordinate meals with coworkers and enjoy special offers and discounts while also providing feedback through ratings."}
+              {"Partnering with hiveX means increased visibility and access to new customers. You can benefit from regular orders that provide a steady revenue stream and can streamline their operations for efficiency. Marketing support and insights into customer preferences are additional advantages, along with flexibility in menu offerings. These services maintain quality control to ensure the food's quality during delivery, which reflects positively on the venues."}
             </p>
             <button
               onClick={closePopup}
