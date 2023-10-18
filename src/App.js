@@ -10,7 +10,7 @@ import { RegisterPage } from './pages/RegisterPage';
 import { VenueRegister } from './pages/VenueRegister';  
 import { BrokerDashboard } from './pages/BrokerDashboard';
 import { VenueDashboard } from './pages/VenueDashboard';
-import { Wallet } from './pages/Wallet';
+import { MyWallet } from './pages/MyWallet';
 
 const ProtectedRoute = ({ isLoggedIn, redirectPath = '/login', children }) => {
   console.log(isLoggedIn);
@@ -60,7 +60,7 @@ function App() {
       <Route path="/broker-dashboard" element={<BrokerDashboard />} />
       <Route path="/venue-dashboard" element={<VenueDashboard />} />
       <Route path="/venue-register" element={<VenueRegister />} />
-      <Route path="/my-wallet" element={<Wallet />} />
+      <Route path="/my-wallet" element={<MyWallet />} />
     </Routes>
   );
 }
