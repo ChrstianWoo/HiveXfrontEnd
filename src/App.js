@@ -12,6 +12,10 @@ import { BrokerDashboard } from './pages/BrokerDashboard';
 import { VenueDashboard } from './pages/VenueDashboard';
 import { MyWallet } from './pages/MyWallet';
 import { AvailableOffers } from './pages/AvailableOffers';
+import { History } from './pages/History';
+import { Offers } from './pages/Offers';
+import { Vouchers } from './pages/Vouchers';
+
 
 
 const ProtectedRoute = ({ isLoggedIn, redirectPath = '/login', children }) => {
@@ -64,6 +68,9 @@ function App() {
       <Route path="/venue-register" element={<VenueRegister />} />
       <Route path="/my-wallet" element={<MyWallet />} />
       <Route path="/available-offers" element={<AvailableOffers />} />
+      <Route path="/history" element={<History />} />
+      <Route path="/my-offers" element={<Offers />} />
+      <Route path="/my-vouchers" element={<Vouchers />} />
     </Routes>
   );
 }
