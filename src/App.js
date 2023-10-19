@@ -11,6 +11,8 @@ import { VenueRegister } from './pages/VenueRegister';
 import { BrokerDashboard } from './pages/BrokerDashboard';
 import { VenueDashboard } from './pages/VenueDashboard';
 import { MyWallet } from './pages/MyWallet';
+import { AvailableOffers } from './pages/AvailableOffers';
+
 
 const ProtectedRoute = ({ isLoggedIn, redirectPath = '/login', children }) => {
   console.log(isLoggedIn);
@@ -61,6 +63,7 @@ function App() {
       <Route path="/venue-dashboard" element={<VenueDashboard />} />
       <Route path="/venue-register" element={<VenueRegister />} />
       <Route path="/my-wallet" element={<MyWallet />} />
+      <Route path="/available-offers" element={<AvailableOffers />} />
     </Routes>
   );
 }
