@@ -16,6 +16,7 @@ export const memberNavigation = [
     },
 ];
 
+  
 export const venueNavigation = [
     {   
         name: 'My Venue',

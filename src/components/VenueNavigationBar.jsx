@@ -8,7 +8,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const NavigationBar = () => {
+const VenueNavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -103,7 +103,7 @@ const NavigationBar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href=""
+                            href="/my-venue"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             My Venue
@@ -155,4 +155,4 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar;
+export default VenueNavigationBar;

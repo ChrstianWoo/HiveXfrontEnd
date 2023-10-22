@@ -5,8 +5,6 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 export const MyPointsPage = () => {
-  
-
   return (
     <div className="bg-gray-100 h-screen">
       <Navbar />

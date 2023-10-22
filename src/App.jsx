@@ -8,8 +8,17 @@ import { LogOutPage } from './pages/LogOutPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { MyWalletPage } from './pages/MyWalletPage';
 import { MyPointsPage } from "./pages/MyPointsPage";
+import { ProfilePage } from "./pages/ProfilePage";
 import { VenueRegister } from './pages/VenueRegister';
 import { VenueDashboard } from './pages/VenueDashboard';
+import { MyVenuePage } from './pages/MyVenuePage';
+import { DealsApprovingPage } from './pages/DealsApprovingPage';
+import { RunningDealsPage } from './pages/RunningDealsPage';
+import { BrokerDashboard } from './pages/BrokerDashboard';
+import { MyDealsPage } from './pages/MyDealsPage';
+import { AnalyticsPage } from './pages/AnalyticsPage';
+import { VenueBrokerPage } from './pages/VenueBrokerPage';
+import { InvVenuePage } from './pages/InvVenuePage';
 
 const ProtectedRoute = ({ isLoggedIn, redirectPath = '/login', children }) => {
   console.log(isLoggedIn);
@@ -58,7 +67,17 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/venue-dashboard" element={<VenueDashboard />} />
       <Route path="/venue-register" element={<VenueRegister />} />
+      <Route path="/profile-page" element={<ProfilePage />} />
       <Route path="/my-points" element={<MyPointsPage />} />
+      <Route path="/my-venue" element={<MyVenuePage />} />
+      <Route path="/deals-approving" element={<DealsApprovingPage />} />
+      <Route path="/running-deals" element={<RunningDealsPage />} />
+      <Route path="/broker-dashboard" element={<BrokerDashboard />} />
+      <Route path="/my-deals" element={<MyDealsPage />} />
+      <Route path="/analytics" element={<AnalyticsPage />} />
+      <Route path="/venue" element={<VenueBrokerPage />} />
+      <Route path="/inv-venue" element={<InvVenuePage />} />
+
     </Routes>
   );
 }

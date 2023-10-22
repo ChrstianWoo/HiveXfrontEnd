@@ -4,17 +4,17 @@ import Navbar from '../components/NavigationBar';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-export const MyWalletPage = () => {
+export const ProfilePage = () => {
   
 
   return (
     <div className="bg-gray-100 h-screen">
       <Navbar />
       <div className="container mt-5">
-        <h1>My Wallet</h1>
+        <h1>Profile Page</h1>
       </div>
     </div>
   );
 };
 
-export default MyWalletPage;
+export default ProfilePage;
