@@ -6,7 +6,9 @@
         "fullName": "Andrew Soen",
         "mobileNumber": "0403282707",
         "ageRange": "18-21",
-        "accountType": "member"
+        "accountType": "member",
+        "isBroker": true,
+        "isVenue": false
 
       },
       {

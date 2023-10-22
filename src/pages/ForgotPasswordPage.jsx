@@ -31,6 +31,7 @@ export const ForgotPasswordPage = (forgotPassPageProps) => {
             } else {
                 setErrorType('green');
                 setError('An email has been sent to recreate a new password.');
+                //connect with backend to send email
             }
         } else {
             setErrorType('red');

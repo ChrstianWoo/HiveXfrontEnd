@@ -3,12 +3,12 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { LoginPage } from './pages/LoginPage';
-import { DashboardPage } from './pages/DashboardPage';
 import { ForgotPasswordPage} from './pages/ForgotPasswordPage';
 import { LogOutPage } from './pages/LogOutPage';
 import { RegisterPage } from './pages/RegisterPage';
+import { MyWalletPage } from './pages/MyWalletPage';
+import { MyPointsPage } from "./pages/MyPointsPage";
 import { VenueRegister } from './pages/VenueRegister';
-import { BrokerDashboard } from './pages/BrokerDashboard';
 import { VenueDashboard } from './pages/VenueDashboard';
 
 const ProtectedRoute = ({ isLoggedIn, redirectPath = '/login', children }) => {
@@ -47,18 +47,18 @@ function App() {
           path="/"
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <DashboardPage handleLogout={handleLogout} />
+              <MyWalletPage handleLogout={handleLogout} />
             </ProtectedRoute>
           }
         />
       <Route path="/login" element={<LoginPage handleLogin={handleLogin} />} />
-      <Route path="/" element={<DashboardPage />} />
+      <Route path="/" element={<MyWalletPage />} />
       <Route path="/forgot-pass" element={<ForgotPasswordPage />} />
       <Route path="/logout" element={<LogOutPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/broker-dashboard" element={<BrokerDashboard />} />
       <Route path="/venue-dashboard" element={<VenueDashboard />} />
       <Route path="/venue-register" element={<VenueRegister />} />
+      <Route path="/my-points" element={<MyPointsPage />} />
     </Routes>
   );
 }
