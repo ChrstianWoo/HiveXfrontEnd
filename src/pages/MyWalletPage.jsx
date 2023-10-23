@@ -21,19 +21,6 @@ export const MyWalletPage = () => {
               <li className="mr-2" role="presentation">
                 <button
                   className={`inline-block text-gray-500 hover:text-gray-600 border-b-2 border-transparent rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent ${
-                    activeTab === 'profile' ? 'text-purple-800 border-purple-800' : ''
-                  }`}
-                  onClick={() => handleTabClick('profile')}
-                  role="tab"
-                  aria-controls="profile"
-                  aria-selected={activeTab === 'profile'}
-                >
-                  Profile
-                </button>
-              </li>
-              <li className="mr-2" role="presentation">
-                <button
-                  className={`inline-block text-gray-500 hover:text-gray-600 border-b-2 border-transparent rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent ${
                     activeTab === 'dashboard' ? 'text-purple-800 border-purple-800' : ''
                   }`}
                   onClick={() => handleTabClick('dashboard')}
@@ -123,13 +110,6 @@ export const MyWalletPage = () => {
             </div>
           </div>
 
-          <p className="mt-5">
-            This tabs component is part of a larger, open-source library of Tailwind CSS components. Learn more by going to the official{' '}
-            <a className="text-blue-600 hover:underline" href="#" target="_blank">
-              Flowbite Documentation
-            </a>
-            .
-          </p>
         </div>
 
       </div>
