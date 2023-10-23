@@ -28,7 +28,7 @@ export const MyWalletPage = () => {
                   aria-controls="dashboard"
                   aria-selected={activeTab === 'dashboard'}
                 >
-                  Dashboard
+                  My Vouchers
                 </button>
               </li>
               <li className="mr-2" role="presentation">
@@ -41,7 +41,7 @@ export const MyWalletPage = () => {
                   aria-controls="settings"
                   aria-selected={activeTab === 'settings'}
                 >
-                  Settings
+                  My Offers
                 </button>
               </li>
               <li role="presentation">
@@ -54,7 +54,7 @@ export const MyWalletPage = () => {
                   aria-controls="contacts"
                   aria-selected={activeTab === 'contacts'}
                 >
-                  Contacts
+                  History
                 </button>
               </li>
             </ul>
