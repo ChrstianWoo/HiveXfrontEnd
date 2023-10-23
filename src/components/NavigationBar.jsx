@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import React, { useState } from "react";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { memberNavigation } from "../utils/navBarList";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 const NavigationBar = () => {
@@ -48,10 +48,12 @@ const NavigationBar = () => {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-purple-800 text-white' : 'text-black hover:bg-purple-700 hover:text-yellow-400',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          item.current
+                            ? "bg-purple-800 text-white"
+                            : "text-black hover:bg-purple-700 hover:text-yellow-400",
+                          "px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : `/${item.id}`}
+                        aria-current={item.current ? "page" : `/${item.id}`}
                       >
                         {item.name}
                       </a>
@@ -94,7 +96,10 @@ const NavigationBar = () => {
                         {({ active }) => (
                           <a
                             href="/profile-page"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             My Profile
                           </a>
@@ -104,7 +109,10 @@ const NavigationBar = () => {
                         {({ active }) => (
                           <a
                             href="/broker-dashboard"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-not-allowed')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700 cursor-not-allowed"
+                            )}
                           >
                             Switch To Broker
                           </a>
@@ -114,13 +122,19 @@ const NavigationBar = () => {
                         {({ active }) => (
                           <a
                             href="/logout"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
-                            <img
-                              className="h-6 w-6 rounded-full"
-                              src="https://cdn.icon-icons.com/icons2/2518/PNG/512/logout_icon_151219.png"
-                              alt=""
-                            />Sign out
+                            <div class="flex items-center">
+                              <img
+                                className="h-6 w-6 rounded-full"
+                                src="https://cdn.icon-icons.com/icons2/2518/PNG/512/logout_icon_151219.png"
+                                alt=""
+                              />
+                              <span>Sign out</span>
+                            </div>
                           </a>
                         )}
                       </Menu.Item>
@@ -139,10 +153,12 @@ const NavigationBar = () => {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-purple-800 text-white' : 'text-black hover:bg-purple-700 hover:text-yellow-400',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current
+                      ? "bg-purple-800 text-white"
+                      : "text-black hover:bg-purple-700 hover:text-yellow-400",
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : `/${item.id}`}
+                  aria-current={item.current ? "page" : `/${item.id}`}
                 >
                   {item.name}
                 </Disclosure.Button>
