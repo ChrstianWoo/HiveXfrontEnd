@@ -133,7 +133,7 @@ const NavigationBar = () => {
                                 src="https://cdn.icon-icons.com/icons2/2518/PNG/512/logout_icon_151219.png"
                                 alt=""
                               />
-                              <span>Sign out</span>
+                              <span> Sign out</span>
                             </div>
                           </a>
                         )}

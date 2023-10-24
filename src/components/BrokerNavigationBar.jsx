@@ -116,11 +116,14 @@ const BrokerNavigationBar = () => {
                             href="/logout"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            <img
-                              className="h-6 w-6 rounded-full"
-                              src="https://cdn.icon-icons.com/icons2/2518/PNG/512/logout_icon_151219.png"
-                              alt=""
-                            />Sign out
+                            <div class="flex items-center">
+                              <img
+                                className="h-6 w-6 rounded-full"
+                                src="https://cdn.icon-icons.com/icons2/2518/PNG/512/logout_icon_151219.png"
+                                alt=""
+                              />
+                              <span> Sign out</span>
+                            </div>
                           </a>
                         )}
                       </Menu.Item>
