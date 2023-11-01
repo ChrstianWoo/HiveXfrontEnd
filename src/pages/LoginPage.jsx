@@ -29,9 +29,9 @@ export const LoginPage = (loginPageProps) => {
         if (user.accountType === 'member') {
           navigate('/');
         } else if (user.accountType === 'broker') {
-          navigate('/broker-dashboard');
+          navigate('/my-deals');
         } else if (user.accountType === 'venue') {
-          navigate('/venue-dashboard');
+          navigate('/my-venue');
         } else {
           setError('Invalid account type.');
         }

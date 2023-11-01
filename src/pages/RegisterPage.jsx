@@ -180,6 +180,7 @@ export const RegisterPage = () => {
                   required={true}
                 />
               </div>
+              
               <button
                 type="submit"
                 className="w-full text-white bg-purple-700 hover:bg-purple-500 active-bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark-bg-primary-600 dark-hover-bg-primary-700 dark-focus-ring-primary-800"
@@ -194,7 +195,17 @@ export const RegisterPage = () => {
                   Return to Login
                 </a>
               </center>
-              
+              <center>
+                <p className="text-sm font-bold text-gray-500 dark:text-gray-400">
+                  I'm a VENUE and I'm interested in HiveX.{' '}
+                  <a
+                    onClick={() => navigate('/venue-register')} // Replace with the actual URL or route
+                    className="cursor-pointer font-medium text-primary-600 hover:underline text-purple-700 hover-text-purple-500"
+                  >
+                    Click here
+                  </a>
+                </p>
+              </center>
             </form>
           </div>
         </div>
