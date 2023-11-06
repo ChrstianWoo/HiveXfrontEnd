@@ -10,6 +10,11 @@ function classNames(...classes) {
 
 const VenueNavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false); // State for showing notifications
+
+  const toggleNotifications = () => {
+    setShowNotifications(!showNotifications);
+  };
 
   return (
     <Disclosure as="nav" className="bg-white shadow-lg">
@@ -63,6 +68,7 @@ const VenueNavigationBar = () => {
                 <button
                   type="button"
                   className="bg-purple-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-purple-800 focus:ring-white"
+                  onClick={toggleNotifications}
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -121,6 +127,13 @@ const VenueNavigationBar = () => {
                   </Transition>
                 </Menu>
               </div>
+              {showNotifications && (
+                // Notification popup
+                <div className="absolute top-16 right-4 z-10 bg-white border border-gray-200 p-4 rounded-lg shadow-lg">
+                  {/* Add your notification content here */}
+                  You have new vouchers!
+                </div>
+              )}
             </div>
           </div>
 

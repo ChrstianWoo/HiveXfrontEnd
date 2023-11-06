@@ -11,7 +11,7 @@ export const RegisterPage = () => {
     confirmPassword: '',
     fullName: '', // First Name field
     mobileNumber: '', // Mobile Number field
-    ageRange: '18-21', // Age range dropdown
+    ageRange: '', // Age range dropdown
     accountType: 'member',
   });
 
@@ -130,25 +130,18 @@ export const RegisterPage = () => {
               </div>
               <div>
                 <label htmlFor="ageRange" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Age Range
+                  Age
                 </label>
-                <select
+                <input
+                  type="number"
                   name="ageRange"
                   value={registerData.ageRange}
                   id="ageRange"
                   onChange={handleRegisterDataChange}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Enter your age"
                   required={true}
-                >
-                  <option value=">13">Under 13</option>
-                  <option value="13-17">13-17</option>
-                  <option value="18-21">18-21</option>
-                  <option value="22-30">22-30</option>
-                  <option value="31-40">31-40</option>
-                  <option value="41-50">41-50</option>
-                  <option value="51-60">51-60</option>
-                  <option value="60+">60 and above</option>
-                </select>
+                />
               </div>
               <div>
                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
