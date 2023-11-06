@@ -1,31 +1,71 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import BroNavbar from '../components/BrokerNavigationBar';
-
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";  
+import BroNavbar from "../components/BrokerNavigationBar";
+import "./InvVenuePage.css";
 export const InvVenuePage = () => {
-  return (
-    <div className="bg-gray-100 h-screen">
-      <BroNavbar />
-      <div className="pt-16 px-4">
-        <div className="text-center text-black text-2xl font-bold mb-6">Invite Venue to HIVE X</div>
+  const [hleActivity, setHleActivity] = useState("");
 
-         {/* Input fields centered in a column */}
-        <div className="space-y-4 mb-6 w-full max-w-xs px-4">
-          <input type="email" placeholder="Owner Email" className="border border-fuchsia-700 rounded p-2 w-full" />
-          <input type="tel" placeholder="Owner Mobile" className="border border-fuchsia-700 rounded p-2 w-full" />
-          <input type="text" placeholder="Owner Name" className="border border-fuchsia-700 rounded p-2 w-full" />
-          <input type="text" placeholder="Location" className="border border-fuchsia-700 rounded p-2 w-full" />
-          <textarea placeholder="Restaurant Details: Phone: Email:" className="border border-fuchsia-700 rounded p-2 w-full h-24" />
-          <textarea placeholder="Write Description" className="border border-fuchsia-700 rounded p-2 w-full h-24" />
-          <textarea placeholder="HLE Activity" className="border border-fuchsia-700 rounded p-2 w-full h-24" />
+  const handleHleActivityChange = (event) => {
+    setHleActivity(event.target.value);
+  };
+  return (
+    <div className="bg-gray-100">
+      <BroNavbar />
+      <div className="container mt-5">
+        <h1>Invite Venue to HiveX</h1>
+      </div>
+
+      <div className="container">
+        <div className="column">
+          <div className="box">
+            <input type="text" placeholder="Owner Email" />
+          </div>
+          <div className="box">
+            <input type="text" placeholder="Owner Mobile" />
+          </div>
+          <div className="box">
+            <input type="text" placeholder="Owner Name" />
+          </div>
+          <div className="box">
+            <input type="text" placeholder="Venue Location" />
+          </div>
         </div>
 
-        {/* Photo upload section */}
-        <div className="border border-fuchsia-700 rounded p-2 mb-6 text-center text-black text-opacity-50 text-xl">Photo +</div>
+        <div className="column">
+          <div className="box">
+            <input type="text" placeholder="Venue Name" />
+          </div>
+          <div className="box">
+            <input type="text" placeholder="Venue Phone" />
+          </div>
+          <div className="box">
+            <input type="text" placeholder="Venue Email" />
+          </div>
+          <div className="box">
+            <select
+              name="hleActivity"
+              value={hleActivity}
+              id="hleActivity"
+              onChange={handleHleActivityChange}
+              required={true}
+              className="choice-style" 
+            >
+              <option value="">HLE Activity</option>
+              <option value="Hospitality">Hospitality</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Leisure">Leisure</option>
+            </select>
+          </div>
 
-        {/* Send Invite button */}
-        <div className="text-center">
-          <button className="bg-black text-white rounded py-2 px-4">Send Invite</button>
+          <div className="box">
+            <textarea placeholder="Write Description"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div className="button_container">
+        <div className="column">
+          <button className="button">Send Invite</button>
         </div>
       </div>
     </div>
@@ -33,3 +73,6 @@ export const InvVenuePage = () => {
 };
 
 export default InvVenuePage;
+
+
+//<div className="border border-fuchsia-700 rounded p-2 mb-6 text-center text-black text-opacity-50 text-xl">Photo +</div>
