@@ -85,7 +85,7 @@ export const MyVenuePage = () => {
                       <div class="px-4 py-2">
                         <a 
                           class="" 
-                          href={`https://www.google.com/maps/search/${encodeURIComponent(profile.brancLocation)}`}
+                          href={`https://www.google.com/maps/search/${encodeURIComponent(profile.branchLocation)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                         >

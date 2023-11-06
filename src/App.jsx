@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { LoginPage } from './pages/LoginPage';
 import { ForgotPasswordPage} from './pages/ForgotPasswordPage';
+import { VenueEmailRegistration } from './pages/VenueEmailRegistrationPage';
 import { LogOutPage } from './pages/LogOutPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { MyWalletPage } from './pages/MyWalletPage';
@@ -63,6 +64,7 @@ function App() {
       <Route path="/login" element={<LoginPage handleLogin={handleLogin} />} />
       <Route path="/" element={<MyWalletPage />} />
       <Route path="/forgot-pass" element={<ForgotPasswordPage />} />
+      <Route path="/venue-email-register" element={<VenueEmailRegistration />} />
       <Route path="/logout" element={<LogOutPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/venue-dashboard" element={<VenueDashboard />} />

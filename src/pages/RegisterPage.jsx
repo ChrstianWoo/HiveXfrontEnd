@@ -192,7 +192,7 @@ export const RegisterPage = () => {
                 <p className="text-sm font-bold text-gray-500 dark:text-gray-400">
                   I'm a VENUE and I'm interested in HiveX.{' '}
                   <a
-                    onClick={() => navigate('/venue-register')} // Replace with the actual URL or route
+                    onClick={() => navigate('/venue-email-register')} // Replace with the actual URL or route
                     className="cursor-pointer font-medium text-primary-600 hover:underline text-purple-700 hover-text-purple-500"
                   >
                     Click here
