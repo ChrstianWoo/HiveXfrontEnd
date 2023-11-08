@@ -9,7 +9,6 @@ function classNames(...classes) {
 }
 
 const BrokerNavigationBar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false); // State for showing notifications
 
   const toggleNotifications = () => {

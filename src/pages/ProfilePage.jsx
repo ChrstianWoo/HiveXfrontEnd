@@ -20,6 +20,8 @@ export const ProfilePage = () => {
     password: 'password!',
     dateOfBirth: 'April 1, 2004',
   };
+
+  
   const [profile, setProfile] = useState({ ...initialProfile });
   const [showPopup, setShowPopup] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
@@ -28,6 +30,7 @@ export const ProfilePage = () => {
   const [editedEmail, setEditedEmail] = useState(profile.email);
   const [dob, setDob] = useState(new Date('2004-04-01'));
   const [showInviteFriends, setShowInviteFriends] = useState(false);
+  const [showPreference, setShowPreference] = useState(false);
 
   const openPopup = () => {
     setShowPopup(true);
@@ -41,6 +44,13 @@ export const ProfilePage = () => {
 
   const closeInviteFriendsPopup = () => {
     setShowInviteFriends(false);
+  };
+  const openPreferencePopup = () => {
+    setShowPreference(true);
+  };
+
+  const closePreferencePopup = () => {
+    setShowPreference(false);
   };
   const handleSave = () => {
     setIsSaved(true);
@@ -150,21 +160,9 @@ export const ProfilePage = () => {
         </div>
         <hr className="border-t-2 my-4" />
         <div class="bg-white p-3 shadow-lg rounded-sm">
-          <div class="flex items-center justify-center space-x-2 font-semibold text-gray-900 leading-8">
+          <a onClick={openPreferencePopup} class="flex items-center justify-center space-x-2 font-semibold text-gray-900 leading-8">
             <span class="tracking-wide">Update Preference</span>
-          </div>
-          <div class="text-gray-700">
-            <div class="grid md:grid-cols-2 text-sm">
-              <div class="grid grid-cols-2">
-                <div class="px-4 py-2 font-semibold">Email</div>
-                <div class="px-4 py-2">Jane</div>
-              </div>
-              <div class="grid grid-cols-2">
-                <div class="px-4 py-2 font-semibold">Mobile</div>
-                <div class="px-4 py-2">Doe</div>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>
         <hr className="border-t-2 my-4" />
         <div class="bg-white p-3 shadow-lg rounded-sm">
@@ -305,6 +303,94 @@ export const ProfilePage = () => {
                   onClick={closePopup}
                   className="absolute top-2 right-2 text-purple-700 font-bold text-xl cursor-pointer focus:outline-none"
                 >
+                  &#x2716;
+                </button>
+              </div>
+            </div>
+          )}
+          {showPreference && (
+            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
+              <div className="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-50" onClick={closeInviteFriendsPopup}></div>
+              <div className="relative bg-white w-full md:w-96 p-6 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <h1 className="text-2xl font-bold text-purple-700 mb-4">Your Dietary Requirements Preference</h1>
+                <h3 className="text-2xl font-bold text-yellow-400 mb-4">I'm interested in:</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="vegetarian"
+                      name="dietaryRequirements"
+                      value="vegetarian"
+                    />
+                    <label for="vegetarian">Vegetarian</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="vegan"
+                      name="dietaryRequirements"
+                      value="vegan"
+                    />
+                    <label for="vegan">Vegan</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="glutenFree"
+                      name="dietaryRequirements"
+                      value="glutenFree"
+                    />
+                    <label for="glutenFree">Gluten-Free</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="dairyFree"
+                      name="dietaryRequirements"
+                      value="dairyFree"
+                    />
+                    <label for="dairyFree">Dairy-Free</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="nutAllergy"
+                      name="dietaryRequirements"
+                      value="nutAllergy"
+                    />
+                    <label for="nutAllergy">Nut-Allergy</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="fishAllergy"
+                      name="dietaryRequirements"
+                      value="fishAllergy"
+                    />
+                    <label for="fishAllergy">Fish-Allergy</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="halal"
+                      name="dietaryRequirements"
+                      value="halal"
+                    />
+                    <label for="halal">Halal</label>
+                  </div>
+                </div>
+                <div className="flex justify-center items-center">
+                  <button
+                    type="button"
+                    onClick={handleSave}
+                    class={`w-full mx-auto text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center ${
+                      isSaved ? 'bg-green-500' : ''
+                    }`}
+                  >
+                    {isSaved ? 'Saved' : 'Save'}
+                  </button>
+                </div>
+                <button onClick={closePreferencePopup} className="absolute top-2 right-2 text-purple-700 font-bold text-xl cursor-pointer focus:outline-none">
                   &#x2716;
                 </button>
               </div>
