@@ -1,46 +1,83 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import BroNavbar from '../components/BrokerNavigationBar';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import BroNavbar from "../components/BrokerNavigationBar";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export const VenueBrokerPage = () => {
-  
+  const [validUntil, setValidUntil] = useState(null);
+  useEffect(() => {
+    // (Jack Api)
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDbmf_oibOuPXvtR11eQJiFcvY148s_Aow&callback=initMap&libraries=&v=weekly`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.initMap = () => {
+      const sydneyOperaHouse = { lat: -33.8568, lng: 151.2153 };
+      const map = new window.google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: sydneyOperaHouse,
+      });
+    };
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="bg-gray-100 h-screen">
       <BroNavbar />
-      <div className="bg-gray-100 min-h-screen flex flex-col items-center pt-4">
-        <div className="flex flex-col items-center px-4 w-full max-w-md mx-auto">
-          
+      <div className="container mt-5">
+        <h1 className="font-bold">Broker Deal</h1>
+        <h2 className="text-center text-4xl">Coupon Details</h2>
 
-          {/* Rest of the content goes here, adjusted for responsiveness */}
-          {/* For images, ensure you provide alt text for accessibility. */}
-          <img className="w-24 h-24" src="https://via.placeholder.com/150" alt="Placeholder" />
+        <p className="text-center mt-2">Prefilled Venue Name</p>
 
-          <div className="text-white bg-black p-4 my-4 w-full">
-            <h2 className="text-2xl mb-2">Venues Trending Right Now.</h2>
-            <p className="text-base">Check out the hottest hospo venues in town.</p>
+        <div className="h-64 w-96 bg-gray-100 flex items-center justify-center mx-auto mt-4">
+          <div id="map" className="h-full w-full"></div>
+        </div>
+
+        <h3 className="text-center mt-4">Prefilled Location</h3>
+        <input
+          type="text"
+          className="w-full border rounded-md p-2 mt-2"
+          placeholder="Deal"
+        />
+        <textarea
+          className="w-full h-40 border rounded-md p-2 mt-2"
+          placeholder="Write Description"
+        ></textarea>
+
+        <div className="flex justify-center items-center mt-2">
+          <DatePicker
+            selected={validUntil}
+            onChange={(date) => setValidUntil(date)}
+            placeholderText="Valid Until"
+            className="w-40 h-10 border rounded-md p-2 text-center"
+          />
+        </div>
+
+        <div className="flex justify-center items-center flex-col mt-2">
+          <input
+            type="text"
+            className="w-40 h-20 border rounded-md p-2 text-center"
+            placeholder="Add Image"
+          />
+        </div>
+        <div className="flex justify-between items-center mt-2">
+          <div>
+            <p>Restaurant Details</p>
+            <p>Phone Number: Sample Number</p>
+            <p>Email:  Sample Email</p>
           </div>
-
-          <div className="text-white bg-black p-4 my-4 w-full">
-            <h2 className="text-2xl mb-2">Most Claimed Deals.</h2>
-            <p className="text-base">Deals making rounds in the city.</p>
-          </div>
-
-          <div className="bg-white p-4 my-4 w-full">
-            <h2 className="text-2xl text-black">Keys to writing copy that actually converts and sells users</h2>
-            <p className="text-lg mt-2">“The beers are colder at the Maddo” 3.5/5</p>
-            <p className="text-lg text-gray-700 mt-2">Author - Madison Hotel</p>
-          </div>
-
-          {/* Responsive image grid example */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-            <img className="w-full h-auto" src="https://via.placeholder.com/150" alt="Placeholder" />
-            <img className="w-full h-auto" src="https://via.placeholder.com/150" alt="Placeholder" />
-          </div>
+          <button className="bg-blue-500 text-white py-2 px-4 rounded-md">
+            Broker Deal
+          </button>
         </div>
       </div>
     </div>
   );
 };
-
 export default VenueBrokerPage;
