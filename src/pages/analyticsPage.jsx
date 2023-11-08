@@ -5,9 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 export const AnalyticsPage = () => {
-   const [accordionOpen, setAccordionOpen] = useState(Array(3).fill(false));
-
- 
+  const [accordionOpen, setAccordionOpen] = useState(Array(3).fill(false));
   const toggleAccordion = (index) => {
     setAccordionOpen((prev) => {
       const newState = [...prev];

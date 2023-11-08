@@ -53,10 +53,7 @@ export const RegisterPage = () => {
     // After successful registration, navigate to the login page
     if (registerData.accountType === 'member') {
       navigate('/'); // Replace with the actual URL for the member account dashboard
-    } else if (registerData.accountType === 'venue') {
-      navigate('/venue-dashboard');
     }
-    
   };
   const [showPopup, setShowPopup] = useState(false);
   const openPopup = () => {
