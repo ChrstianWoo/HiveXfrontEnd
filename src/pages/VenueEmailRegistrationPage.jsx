@@ -27,7 +27,6 @@ export const VenueEmailRegistration = (venueEmailPageProps) => {
             if (user.password === loginData.password) {
                 setErrorType('success');
                 venueEmailPageProps.handleLogin();
-                navigate('/login');
             } else {
                 setErrorType('red');
                 setError('Your data is in our database. Please try again.');
