@@ -76,7 +76,7 @@ export const ProfilePage = () => {
   return (
     <div className="bg-gray-100 h-screen">
       <Navbar />
-      <div className="container mt-5">
+      <div className="container mt-5 ">
         <div class="bg-white p-3 shadow-lg rounded-sm">
             <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                 <span clas="text-green-500">
@@ -312,17 +312,8 @@ export const ProfilePage = () => {
               <div className="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-50" onClick={closeInviteFriendsPopup}></div>
               <div className="relative bg-white w-full md:w-96 p-6 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <h1 className="text-2xl font-bold text-purple-700 mb-4">Your Dietary Requirements Preference</h1>
-                <h3 className="text-2xl font-bold text-yellow-400 mb-4">I'm interested in:</h3>
+                <h3 className="text-2xl font-bold text-yellow-400 mb-4">I'm rstricted to:</h3>
                 <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <input
-                      type="checkbox"
-                      id="vegetarian"
-                      name="dietaryRequirements"
-                      value="vegetarian"
-                    />
-                    <label for="vegetarian">Vegetarian</label>
-                  </div>
                   <div>
                     <input
                       type="checkbox"

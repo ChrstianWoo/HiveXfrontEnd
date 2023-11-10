@@ -7,6 +7,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 export const DealsApprovingPage = () => {
   const initialDealsDetails = {
     venueName: 'Adiamo',
+    category: 'Italian Food',
+    restriction1: " ",
+    restriction2: " ",
     promo: 'Discount Up to 50%',
     startDate: 'November 11, 2024',
     endDate: 'November 16, 2024',
@@ -14,6 +17,9 @@ export const DealsApprovingPage = () => {
   const [deals, setDeals] = useState({ ...initialDealsDetails });
   const [showPopup, setShowPopup] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(deals.category);
+  const [selectedRestriction1, setSelectedRestriction1] = useState(deals.restriction1);
+  const [selectedRestriction2, setSelectedRestriction2] = useState(deals.restriction2);
   const [startDate, setstartDate] = useState(new Date('2024-11-11'));
   const [endDate, setEndDate] = useState(new Date('2024-11-20'));
 
@@ -26,6 +32,15 @@ export const DealsApprovingPage = () => {
   const handleSave = () => {
     setIsSaved(true);
     // You can add code to save the changes here.
+  };
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+  const handleRestriction1Change = (e) => {
+    setSelectedRestriction1(e.target.value);
+  };
+  const handleRestriction2Change = (e) => {
+    setSelectedRestriction2(e.target.value);
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,9 +70,11 @@ export const DealsApprovingPage = () => {
             {/* Venue image */}
             <img src="https://via.placeholder.com/300x150" alt="Venue" className="w-full h-auto rounded-lg mb-3" />
             {/* Venue name */}
-            <h2 className="text-lg font-bold mb-2">{deals.venueName}</h2>
+            <h2 className="text-lg font-bold mb-2 text-purple-700">{deals.venueName}</h2>
             {/* Deal description */}
             <p className="text-gray-700 mb-3">{deals.promo}</p>
+            {/* Deal restaurant category */}
+            <p className="text-gray-700 mb-3">{selectedCategory} "{selectedRestriction1}, {selectedRestriction2}"</p>
             {/* Date range */}
             <p className="text-gray-500 mb-4">{startDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} - {endDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
             {/* Other details */}
@@ -101,6 +118,68 @@ export const DealsApprovingPage = () => {
                     onChange={handleChange}
                     className="px-4 py-2"
                   />
+                </div>
+                <div class="grid grid-cols-2">
+                  <div class="px-4 py-2 font-semibold">Category</div>
+                  <select
+                    name="category"
+                    value={selectedCategory}
+                    onChange={handleCategoryChange}
+                    className="px-4 py-2"
+                  >
+                    <option value="Mediterranean-Food">Mediterranean Food</option>
+                    <option value="Asian-Food">Asian Food</option>
+                    <option value="American-Food">American Food</option>
+                    <option value="Fine-Dining"> Fine Dining</option>
+                    <option value="Coffee Culture">Coffee Culture</option>
+                    <option value="Smoothies & Bubble Tea">Smoothies & Bubble Tea</option>
+                    <option value="Desserts">Desserts</option>
+                    <option value="Nightlife">Nightlife</option>
+                    <option value="Outdoor activities">Outdoor activities</option>
+                    <option value="Competitive Socialising">Competitive socialising</option>
+                    <option value="Art & Culture">Art & Culture</option>
+                    <option value="Walks, parks & historical sites">Walks, parks & historical sites</option>
+                    <option value="Markets, festivals and events">Markets, festivals and events</option>
+                    <option value="Theatre">Theatre</option>
+                    <option value="Sport">Sport</option>
+                    <option value="Music">Music</option>
+                    <option value="Movies">Movies</option>
+                    <option value="Wellness">Wellness</option>
+                  </select>
+                </div>
+                <div class="grid grid-cols-2">
+                  <div class="px-4 py-2 font-semibold">Category</div>
+                  <select
+                    name="category"
+                    value={selectedRestriction1}
+                    onChange={handleRestriction1Change}
+                    className="px-4 py-2"
+                  >
+                    <option value="Vegan">Vegan</option>
+                    <option value="Gluten-Free">Gluten-Free</option>
+                    <option value="Dairy-Free">Dairy-Free</option>
+                    <option value="Nut-Allergy">Nut-Alleregy</option>
+                    <option value="Fish-Allergy">Fish-Alleregy</option>
+                    <option value="Halal">Halal</option>
+                    <option value="Fun">Fun</option>
+                  </select>
+                </div>
+                <div class="grid grid-cols-2">
+                  <div class="px-4 py-2 font-semibold">Category</div>
+                  <select
+                    name="category"
+                    value={selectedRestriction2}
+                    onChange={handleRestriction2Change}
+                    className="px-4 py-2"
+                  >
+                    <option value="Vegan">Vegan</option>
+                    <option value="Gluten-Free">Gluten-Free</option>
+                    <option value="Dairy-Free">Dairy-Free</option>
+                    <option value="Nut-Allergy">Nut-Alleregy</option>
+                    <option value="Fish-Allergy">Fish-Alleregy</option>
+                    <option value="Halal">Halal</option>
+                    <option value="Exciting">Exciting</option>
+                  </select>
                 </div>
                 <div class="grid grid-cols-2">
                     <div class="px-4 py-2 font-semibold">Start Date</div>
