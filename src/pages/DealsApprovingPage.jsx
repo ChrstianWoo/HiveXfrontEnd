@@ -7,9 +7,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 export const DealsApprovingPage = () => {
   const initialDealsDetails = {
     venueName: 'Adiamo',
-    category: 'Italian Food',
-    restriction1: " ",
-    restriction2: " ",
+    category: 'Mediterranean Food',
+    restriction1: "",
+    restriction2: "",
     promo: 'Discount Up to 50%',
     startDate: 'November 11, 2024',
     endDate: 'November 16, 2024',
@@ -56,10 +56,6 @@ export const DealsApprovingPage = () => {
       <div className="flex-grow container mx-auto bg-white shadow-lg mt-4 mb-4 rounded-lg overflow-hidden">
         {/* Header with back icon and title */}
         <div className="p-4 border-b border-gray-200 flex items-center">
-          <Link to="/previous-page" className="inline-block">
-            {/* Replace with actual icon */}
-            <img src="https://via.placeholder.com/20x20" alt="Back" />
-          </Link>
           <h1 className="font-bold text-xl text-center flex-grow">Deals to Approve</h1>
         </div>
 
@@ -68,13 +64,13 @@ export const DealsApprovingPage = () => {
           {/* Deal card */}
           <div className="border border-gray-300 rounded-lg p-4 mb-4">
             {/* Venue image */}
-            <img src="https://via.placeholder.com/300x150" alt="Venue" className="w-full h-auto rounded-lg mb-3" />
+            <img src="assets/Medit-Food.jpg" alt="Venue" className="w-full h-auto rounded-lg mb-3" />
             {/* Venue name */}
             <h2 className="text-lg font-bold mb-2 text-purple-700">{deals.venueName}</h2>
             {/* Deal description */}
             <p className="text-gray-700 mb-3">{deals.promo}</p>
             {/* Deal restaurant category */}
-            <p className="text-gray-700 mb-3">{selectedCategory} "{selectedRestriction1}, {selectedRestriction2}"</p>
+            <p className="text-gray-700 mb-3">{selectedCategory} "{selectedRestriction1} {selectedRestriction2}"</p>
             {/* Date range */}
             <p className="text-gray-500 mb-4">{startDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} - {endDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
             {/* Other details */}
@@ -148,7 +144,7 @@ export const DealsApprovingPage = () => {
                   </select>
                 </div>
                 <div class="grid grid-cols-2">
-                  <div class="px-4 py-2 font-semibold">Category</div>
+                  <div class="px-4 py-2 font-semibold">Restriction</div>
                   <select
                     name="category"
                     value={selectedRestriction1}
@@ -179,6 +175,7 @@ export const DealsApprovingPage = () => {
                     <option value="Fish-Allergy">Fish-Alleregy</option>
                     <option value="Halal">Halal</option>
                     <option value="Exciting">Exciting</option>
+                    <option value=""></option>
                   </select>
                 </div>
                 <div class="grid grid-cols-2">

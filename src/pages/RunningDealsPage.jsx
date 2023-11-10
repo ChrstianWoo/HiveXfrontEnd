@@ -13,7 +13,7 @@ export const RunningDealsPage = () => {
               <div className="text-2xl font-bold mb-2">My Running Deals</div>
               <div className="bg-zinc-100 p-4 rounded-lg mb-4">
                 <div className="text-center font-bold">Adiamo</div>
-                <img className="mx-auto" src="https://via.placeholder.com/227x112" alt="Deal" />
+                <img className="mx-auto" src="assets/Medit-Food.jpg" alt="Deal" />
                 <div className="text-xl font-bold mt-2">Coupon Details</div>
                 <div className="text-base font-bold">Discount Up to 50%</div>
                 <div className="text-xs text-center my-2">Valid Until November 20, 2023</div>
