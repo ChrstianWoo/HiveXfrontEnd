@@ -130,7 +130,7 @@ const VenueNavigationBar = () => {
                 // Notification popup
                 <div className="absolute top-16 right-4 z-10 bg-white border border-gray-200 p-4 rounded-lg shadow-lg">
                   {/* Add your notification content here */}
-                  You have new vouchers!
+                  You have 56 deals to approve!
                 </div>
               )}
             </div>

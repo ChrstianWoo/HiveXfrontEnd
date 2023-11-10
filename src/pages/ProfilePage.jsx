@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/NavigationBar';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Switch } from "@material-tailwind/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import DatePicker from 'react-datepicker';
@@ -77,7 +76,7 @@ export const ProfilePage = () => {
   return (
     <div className="bg-gray-100 h-screen">
       <Navbar />
-      <div className="container mt-5 ">
+      <div className="container mt-5">
         <div class="bg-white p-3 shadow-lg rounded-sm">
             <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                 <span clas="text-green-500">

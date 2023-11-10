@@ -20,6 +20,8 @@ import { MyDealsPage } from './pages/MyDealsPage';
 import { AnalyticsPage } from './pages/analyticsPage';
 import { VenueBrokerPage } from './pages/VenueBrokerPage';
 import { InvVenuePage } from './pages/InvVenuePage';
+import { DealsApprovedLivePage } from './pages/DealsApprovedLivePage';
+import { RunningDealsPaused } from './pages/RunningDealsPaused';
 
 const ProtectedRoute = ({ isLoggedIn, redirectPath = '/login', children }) => {
   console.log(isLoggedIn);
@@ -73,8 +75,10 @@ function App() {
       <Route path="/my-points" element={<MyPointsPage />} />
       <Route path="/my-venue" element={<MyVenuePage />} />
       <Route path="/deals-approving" element={<DealsApprovingPage />} />
+      <Route path="/go-live" element={<DealsApprovedLivePage />} />
       <Route path="/running-deals" element={<RunningDealsPage />} />
       <Route path="/broker-dashboard" element={<BrokerDashboard />} />
+      <Route path="/pause-deal" element={<RunningDealsPaused />} />
       <Route path="/my-deals" element={<MyDealsPage />} />
       <Route path="/analytics" element={<AnalyticsPage />} />
       <Route path="/venue" element={<VenueBrokerPage />} />
