@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faCheckCircle, faTimesCircle, faCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 import BroNavbar from '../components/BrokerNavigationBar';
@@ -14,6 +14,7 @@ const dealsData = [
     reviewsLink: 'Reviews',
     conditions: 'Entry before 2 pm\nDine in only\nMaximum of 3 patrons',
     deal: '20% off pizza',
+    status: true, // true for green circle, false for red circle
   },
   {
     name: 'Dominos',
@@ -21,6 +22,15 @@ const dealsData = [
     reviewsLink: 'Reviews',
     conditions: 'Entry before 2 pm\nDine in only\nMaximum of 3 patrons',
     deal: '50% off pizza',
+    status: false, // true for green circle, false for red circle
+  },
+  {
+    name: 'Shanghai Dumpling Bar',
+    image: '/assets/Shanghai Dumpling Bar.png',
+    reviewsLink: 'Reviews',
+    conditions: 'Must spend $10',
+    deal: '50% off Dumplings',
+    status: null, // null for pending status
   },
 ];
 
@@ -49,13 +59,24 @@ export const MyDealsPage = () => {
             </div>
             <div className="flex justify-between items-center cursor-pointer">
               <div className="text-sky-500 text-xs underline">{deal.reviewsLink}</div>
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                className={`w-4 h-4 transition-transform transform ${
-                  accordionOpen[index] ? 'rotate-180' : ''
-                }`}
-                onClick={() => toggleAccordion(index)}
-              />
+              <div className="flex items-center">
+                {deal.status !== null ? (
+                  deal.status ? (
+                    <FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mr-2" />
+                  ) : (
+                    <FontAwesomeIcon icon={faTimesCircle} className="text-red-500 mr-2" />
+                  )
+                ) : (
+                  <FontAwesomeIcon icon={faCircle} className="text-yellow-500 mr-2" />
+                )}
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className={`w-4 h-4 transition-transform transform ${
+                    accordionOpen[index] ? 'rotate-180' : ''
+                  }`}
+                  onClick={() => toggleAccordion(index)}
+                />
+              </div>
             </div>
 
             {accordionOpen[index] && (
