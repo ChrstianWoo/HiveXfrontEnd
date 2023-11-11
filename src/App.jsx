@@ -22,6 +22,7 @@ import { VenueBrokerPage } from './pages/VenueBrokerPage';
 import { InvVenuePage } from './pages/InvVenuePage';
 import { DealsApprovedLivePage } from './pages/DealsApprovedLivePage';
 import { RunningDealsPaused } from './pages/RunningDealsPaused';
+import { BrokeDealPage } from './pages/BrokeDealPage';
 
 const ProtectedRoute = ({ isLoggedIn, redirectPath = '/login', children }) => {
   console.log(isLoggedIn);
@@ -83,6 +84,7 @@ function App() {
       <Route path="/analytics" element={<AnalyticsPage />} />
       <Route path="/venue" element={<VenueBrokerPage />} />
       <Route path="/inv-venue" element={<InvVenuePage />} />
+      <Route path="/broke-deal" element={<BrokeDealPage/>} />
     </Routes>
   );
 }
