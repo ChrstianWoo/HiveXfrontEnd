@@ -17,12 +17,12 @@ const dealsData = [
     status: true, // true for green circle, false for red circle
   },
   {
-    name: 'Dominos',
-    image: '/assets/Dominos.png',
+    name: 'Andiamo',
+    image: '/assets/andiamo.png',
     reviewsLink: 'Reviews',
     conditions: 'Entry before 2 pm\nDine in only\nMaximum of 3 patrons',
     deal: '50% off pizza',
-    status: false, // true for green circle, false for red circle
+    status: false, 
   },
   {
     name: 'Shanghai Dumpling Bar',
