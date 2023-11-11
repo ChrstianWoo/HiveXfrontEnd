@@ -8,7 +8,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const NavigationBar = () => {
+const NavigationBar = ({ accountType }) => {
   const [showNotifications, setShowNotifications] = useState(false); // State for showing notifications
 
   const toggleNotifications = () => {
@@ -34,16 +34,20 @@ const NavigationBar = () => {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
+                <a href="/">
                   <img
                     className="block lg:hidden h-8 w-auto"
                     src="assets/hiveX.png"
                     alt="Workflow"
                   />
+                </a>
+                <a href="/">
                   <img
                     className="hidden lg:block h-8 w-auto"
                     src="assets/hiveX.png"
                     alt="Workflow"
                   />
+                </a>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
@@ -116,7 +120,8 @@ const NavigationBar = () => {
                             href="/my-deals"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700 cursor-not-allowed"
+                              "block px-4 py-2 text-sm text-gray-700",
+                              accountType === "member" ? "" : "cursor-not-allowed"
                             )}
                           >
                             Switch To Broker

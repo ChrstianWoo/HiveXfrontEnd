@@ -6,6 +6,16 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export const VenueBrokerPage = () => {
   const [validUntil, setValidUntil] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const handleImageChange = (e) => {
+    const selectedFile = e.target.files[0];
+
+    // Use URL.createObjectURL to create a URL for the selected image
+    const imageUrl = URL.createObjectURL(selectedFile);
+
+    // Set the selected image URL to state
+    setSelectedImage(imageUrl);
+  };
   useEffect(() => {
     // (Jack Api)
     const script = document.createElement("script");
@@ -60,11 +70,27 @@ export const VenueBrokerPage = () => {
         </div>
 
         <div className="flex justify-center items-center flex-col mt-2">
-          <input
-            type="text"
-            className="w-40 h-20 border rounded-md p-2 text-center"
-            placeholder="Add Image"
-          />
+          <label htmlFor="imageInput" className="cursor-pointer">
+            <input
+              type="file"
+              id="imageInput"
+              className="hidden"
+              onChange={handleImageChange}
+            />
+            <div className="flex items-center justify-center w-40 h-20 border rounded-md p-2 text-center text-gray-400 hover:text-yellow-400 bg-white hover:bg-purple-700">
+              <p>Add Image</p>
+            </div>
+          </label>
+
+          {/* Display the selected image */}
+          {selectedImage && (
+            <img
+              src={selectedImage}
+              alt="Selected"
+              className="mt-2 rounded-md max-w-full"
+              style={{ maxWidth: "200px" }} // Set the max width to resize the image
+            />
+          )}
         </div>
         <div className="flex justify-between items-center mt-2">
           <div>

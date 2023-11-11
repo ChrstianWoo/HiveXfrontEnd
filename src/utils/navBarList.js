@@ -59,5 +59,6 @@ export const brokerNavigation = [
     {
         name: 'Deal',
         href: "broke-deal",
+        current: false
     },
 ];

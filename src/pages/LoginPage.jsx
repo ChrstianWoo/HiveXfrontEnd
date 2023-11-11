@@ -31,7 +31,7 @@ export const LoginPage = (loginPageProps) => {
         } else if (user.accountType === 'broker') {
           navigate('/my-deals');
         } else if (user.accountType === 'venue') {
-          navigate('/my-venue');
+          navigate('/deals-approving');
         } else {
           setError('Invalid account type.');
         }
