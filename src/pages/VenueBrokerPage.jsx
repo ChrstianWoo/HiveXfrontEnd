@@ -1,107 +1,100 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import BroNavbar from "../components/BrokerNavigationBar";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faChevronDown,
+  faCheckCircle,
+  faTimesCircle,
+  faCircle,
+} from "@fortawesome/free-solid-svg-icons";
+
+const dealsData = [
+  {
+    name: "Ginger and Spice",
+    image: "/assets/ginger and spice.png",
+    reviewsLink: "Reviews",
+    conditions: "Entry before 2 pm\nDine in only\nMaximum of 3 patrons",
+    deal: "20% off pizza",
+  },
+  {
+    name: "Andiamo",
+    image: "/assets/andiamo.png",
+    reviewsLink: "Reviews",
+    conditions: "Entry before 2 pm\nDine in only\nMaximum of 3 patrons",
+    deal: "50% off pizza",
+  },
+  {
+    name: "Shanghai Dumpling Bar",
+    image: "/assets/Shanghai Dumpling Bar.png",
+    reviewsLink: "Reviews",
+    conditions: "Must spend $10",
+    deal: "50% off Dumplings",
+  },
+];
 
 export const VenueBrokerPage = () => {
-  const [validUntil, setValidUntil] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const handleImageChange = (e) => {
-    const selectedFile = e.target.files[0];
+  const [accordionOpen, setAccordionOpen] = useState(
+    Array(dealsData.length).fill(false)
+  );
 
-    // Use URL.createObjectURL to create a URL for the selected image
-    const imageUrl = URL.createObjectURL(selectedFile);
-
-    // Set the selected image URL to state
-    setSelectedImage(imageUrl);
+  const toggleAccordion = (index) => {
+    setAccordionOpen((prev) => {
+      const newState = [...prev];
+      newState[index] = !newState[index];
+      return newState;
+    });
   };
-  useEffect(() => {
-    // (Jack Api)
-    const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDbmf_oibOuPXvtR11eQJiFcvY148s_Aow&callback=initMap&libraries=&v=weekly`;
-    script.async = true;
-    document.head.appendChild(script);
-
-    window.initMap = () => {
-      const sydneyOperaHouse = { lat: -33.8568, lng: 151.2153 };
-      const map = new window.google.maps.Map(document.getElementById("map"), {
-        zoom: 15,
-        center: sydneyOperaHouse,
-      });
-    };
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
-
   return (
-    <div className="bg-gray-100 h-screen">
+    <div className="bg-white">
       <BroNavbar />
-      <div className="container mt-5">
-        <h1 className="font-bold">Broker Deal</h1>
-        <h2 className="text-center text-4xl">Coupon Details</h2>
+      <div className="max-w-md lg:max-w-4xl mx-auto p-4">
+        <div className="text-2xl font-bold mb-4">Your Venue</div>
 
-        <p className="text-center mt-2">Prefilled Venue Name</p>
-
-        <div className="h-64 w-96 bg-gray-100 flex items-center justify-center mx-auto mt-4">
-          <div id="map" className="h-full w-full"></div>
-        </div>
-
-        <h3 className="text-center mt-4">Prefilled Location</h3>
-        <input
-          type="text"
-          className="w-full border rounded-md p-2 mt-2"
-          placeholder="Deal"
-        />
-        <textarea
-          className="w-full h-40 border rounded-md p-2 mt-2"
-          placeholder="Write Description"
-        ></textarea>
-
-        <div className="flex justify-center items-center mt-2">
-          <DatePicker
-            selected={validUntil}
-            onChange={(date) => setValidUntil(date)}
-            placeholderText="Valid Until"
-            className="w-40 h-10 border rounded-md p-2 text-center"
-          />
-        </div>
-
-        <div className="flex justify-center items-center flex-col mt-2">
-          <label htmlFor="imageInput" className="cursor-pointer">
-            <input
-              type="file"
-              id="imageInput"
-              className="hidden"
-              onChange={handleImageChange}
-            />
-            <div className="flex items-center justify-center w-40 h-20 border rounded-md p-2 text-center text-gray-400 hover:text-yellow-400 bg-white hover:bg-purple-700">
-              <p>Add Image</p>
+        {dealsData.map((deal, index) => (
+          <div key={index} className="bg-white rounded shadow mb-6 p-4">
+            <div className="flex items-center mb-2">
+              <img
+                src={deal.image}
+                alt={deal.name}
+                className="rounded-full w-10 h-10 mr-4"
+              />
+              <div className="text-sm font-bold">{deal.name}</div>
             </div>
-          </label>
+            <div className="flex justify-between items-center cursor-pointer">
+              <div className="text-sky-500 text-xs underline">
+                {deal.reviewsLink}
+              </div>
+              <div className="flex items-center">
+                {/* Remove the status and circles */}
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className={`w-4 h-4 transition-transform transform ${
+                    accordionOpen[index] ? "rotate-180" : ""
+                  }`}
+                  onClick={() => toggleAccordion(index)}
+                />
+              </div>
+            </div>
 
-          {/* Display the selected image */}
-          {selectedImage && (
-            <img
-              src={selectedImage}
-              alt="Selected"
-              className="mt-2 rounded-md max-w-full"
-              style={{ maxWidth: "200px" }} // Set the max width to resize the image
-            />
-          )}
-        </div>
-        <div className="flex justify-between items-center mt-2">
-          <div>
-            <p>Restaurant Details</p>
-            <p>Phone Number: Sample Number</p>
-            <p>Email:  Sample Email</p>
+            {accordionOpen[index] && (
+              <div className="text-xs mt-2">
+                <div className="font-bold mb-1">Conditions</div>
+                {deal.conditions.split("\n").map((line, lineIndex) => (
+                  <p key={lineIndex}>{line}</p>
+                ))}
+                <div className="flex justify-between items-center mt-2">
+                  <div className="font-bold">Deal</div>
+                  <div className="text-sky-500 text-xs underline">
+                    See Progress
+                  </div>
+                </div>
+                <p>{deal.deal}</p>
+              </div>
+            )}
           </div>
-          <button className="bg-blue-500 text-white py-2 px-4 rounded-md">
-            Broker Deal
-          </button>
-        </div>
+        ))}
       </div>
     </div>
   );
