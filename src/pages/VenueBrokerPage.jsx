@@ -93,7 +93,6 @@ export const VenueBrokerPage = () => {
                   <p>Owner Email: {deal.owner.email}</p>
   
                   <div className="font-bold mb-1">Popular times</div>
-                  <div className="mb-2">{/* Adjust margin for popular times */}</div>
                   <img
                     src={deal.popularTimes.props.src}
                     alt="Popular Times"
