@@ -312,7 +312,7 @@ export const ProfilePage = () => {
               <div className="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-50" onClick={closeInviteFriendsPopup}></div>
               <div className="relative bg-white w-full md:w-96 p-6 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <h1 className="text-2xl font-bold text-purple-700 mb-4">Your Dietary Requirements Preference</h1>
-                <h3 className="text-2xl font-bold text-yellow-400 mb-4">I'm rstricted to:</h3>
+                <h3 className="text-2xl font-bold text-yellow-400 mb-4">I'm restricted to:</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <input
