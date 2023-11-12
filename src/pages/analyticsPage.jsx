@@ -34,6 +34,15 @@ const dealsData = [
     spanOfValidityData: [30, 50, 70, 20, 80, 60, 40, 20, 10, 30, 50, 120,90,30,20,10,4,0,100,70,50], 
 
   },
+  {
+    name: 'Shanghai Dumpling Bar',
+    image: '/assets/Shanghai Dumpling Bar.png',
+    reviewsLink: 'Reviews',
+    conditions: 'Must spend $10',
+    deal: 'Holiday Deal 80% off',
+    spanOfValidityData: [20,30,10,120,60,20,70], 
+
+  },
 ];
 
 
