@@ -101,7 +101,7 @@ export const BrokeDealPage = () => {
             <p>Phone Number: Sample Number</p>
             <p>Email: Sample Email</p>
           </div>
-          <button className="bg-blue-500 text-white py-2 px-4 rounded-md">
+          <button className="bg-purple-700 text-white py-2 px-4 rounded-md">
             Broker Deal
           </button>
         </div>
