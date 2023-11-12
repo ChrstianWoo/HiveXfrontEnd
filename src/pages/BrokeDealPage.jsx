@@ -81,7 +81,7 @@ export const BrokeDealPage = () => {
               className="hidden"
               onChange={handleImageChange}
             />
-            <div className="flex items-center justify-center w-50 h-20 border rounded-md p-2 text-center text-gray-400 hover:text-yellow-400 bg-white hover:bg-purple-700">
+            <div className="flex items-center justify-center w-40 h-20 border rounded-md p-2 text-center text-gray-400 hover:text-yellow-400 bg-white hover:bg-purple-700">
               <p>Add Image</p>
             </div>
           </label>
