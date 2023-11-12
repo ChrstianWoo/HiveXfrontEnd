@@ -20,7 +20,7 @@ export const MyVenuePage = () => {
   const [isSaved, setIsSaved] = useState(false);
   const [editedEmail, setEditedEmail] = useState(profile.email);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false); // Track password visibility
-  const [showPreference, setShowPreference] = useState(false);
+  const [showReview, setShowReview] = useState(false);
   const openPopup = () => {
     setShowPopup(true);
   };
@@ -45,12 +45,12 @@ export const MyVenuePage = () => {
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
 
-  };const openPreferencePopup = () => {
-    setShowPreference(true);
+  };const openReviewPopup = () => {
+    setShowReview(true);
   };
 
-  const closePreferencePopup = () => {
-    setShowPreference(false);
+  const closeReviewPopup = () => {
+    setShowReview(false);
     setShowPopup(false);
     setIsSaved(false);
   };
@@ -144,8 +144,8 @@ export const MyVenuePage = () => {
         </div>
         <hr className="border-t-2 my-4" />
         <div class="bg-white p-3 shadow-lg rounded-sm">
-          <a onClick={openPreferencePopup} class="flex items-center justify-center space-x-2 font-semibold text-gray-900 leading-8">
-            <span class="tracking-wide">Update Preference</span>
+          <a onClick={openReviewPopup} class="flex items-center justify-center space-x-2 font-semibold text-gray-900 leading-8">
+            <span class="tracking-wide">Venue Review</span>
           </a>
         </div>
         {showPopup && (
@@ -253,7 +253,7 @@ export const MyVenuePage = () => {
                 </div>
               </div>
             )}
-            {showPreference && (
+            {showReview && (
             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
               <div className="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-50" onClick={closePopup}></div>
               <div className="relative bg-white w-full md:w-3/5 p-6 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -345,7 +345,7 @@ export const MyVenuePage = () => {
                   <p class="mb-2 text-gray-500 dark:text-gray-400">This is my third Invicta Pro Diver. They are just fantastic value for money. This one arrived yesterday and the first thing I did was set the time, popped on an identical strap from another Invicta and went in the shower with it to test the waterproofing.... No problems.</p>
                   <p class="mb-3 text-gray-500 dark:text-gray-400">It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.</p>
                 </article>
-                <button onClick={closePreferencePopup} className="absolute top-2 right-2 text-purple-700 font-bold text-xl cursor-pointer focus:outline-none">
+                <button onClick={closeReviewPopup} className="absolute top-2 right-2 text-purple-700 font-bold text-xl cursor-pointer focus:outline-none">
                   &#x2716;
                 </button>
               </div>

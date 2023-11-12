@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faCheckCircle, faTimesCircle, faCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import BroNavbar from '../components/BrokerNavigationBar';
-
 import GingerAndSpicePage from './GingerAndSpicePage';
 import AndiamoPage from './AndiamoPage';
 import ShanghaiDumplingPage from '../pages/ShanghaiDumplingPage';
@@ -41,6 +40,7 @@ const dealsData = [
 
 export const MyDealsPage = () => {
   const [accordionOpen, setAccordionOpen] = useState(Array(dealsData.length).fill(false));
+
 
   const toggleAccordion = (index) => {
     setAccordionOpen((prev) => {
@@ -88,7 +88,7 @@ export const MyDealsPage = () => {
                 />
               </div>
             </div>
-
+            
             {accordionOpen[index] && (
               <div className="text-xs mt-2">
                 <div className="font-bold mb-1">Conditions</div>
@@ -97,11 +97,26 @@ export const MyDealsPage = () => {
                   <p key={lineIndex}>{line}</p>
                 ))}
                 <div className=" flex justify-between mt-2">
-               
-                  <div className="text-sky-500 text-xs underline">See Progress</div>
+                  <div className="text-sky-500 text-xl underline">Progress</div>
                   <Link to={deal.pageLink}  className="text-sky-500 text-xs underline ml-auto">
                     About Us
                   </Link>
+                </div>
+                <div className="flex justify-between mb-1 text-base font-medium text-purple-700 dark:text-purple-500">
+                  <div>Issued</div>
+                  <div>In Review</div>
+                  <div>Management Approval</div>
+                  <div>Complete</div>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                  <div
+                    className={`${
+                      deal.status === true ? 'bg-purple-600' : deal.status === false ? 'bg-red-600' : 'bg-yellow-600'
+                    } h-2.5 rounded-full dark:${
+                      deal.status === true ? 'bg-purple-500' : deal.status === false ? 'bg-red-500' : 'bg-yellow-500'
+                    }`}
+                    style={{ width: deal.status === true ? '100%' : deal.status === false ? '70%' : '45%' }}
+                  ></div>
                 </div>
               </div>
             )}
