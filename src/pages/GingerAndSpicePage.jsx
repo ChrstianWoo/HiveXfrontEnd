@@ -16,7 +16,11 @@ const GingerAndSpicePage = () => {
           Expect succulent Singapore chilli prawns, old school fried rice, and beautiful kechap manis squid in secret sauce.
         </p>
       </div>
-
+      
+      <div className="mb-4">
+        <p className="font-bold mb-2">No Menu Available</p>
+       
+      </div>
       <div className="mb-4">
         <p className="font-bold mb-2">FAVOURITES</p>
         <ul>

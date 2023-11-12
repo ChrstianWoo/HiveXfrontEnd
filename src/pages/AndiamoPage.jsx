@@ -1,27 +1,47 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const AndiamoPage = () => {
   return (
     <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">
       <div className="flex justify-between items-center mb-4">
-        <div className="text-2xl font-bold mb-4">And</div>
-        <img src="/assets/ginger and spice.png" alt="Ginger and Spice Logo" className="w-16 h-16 rounded-full" />
+        <div className="text-2xl font-bold mb-4">Andiamo</div>
+        <img
+          src="/assets/andiamo.png"
+          alt="Andiamo Logo"
+          className="w-16 h-16 rounded-full"
+        />
       </div>
 
       <div className="mb-4">
-        <p className="font-bold mb-2">SINGAPOREAN</p>
+        <p className="font-bold mb-2">Italian</p>
         <p>
-          Alex Lee’s famous Singaporean institution has found a new home in Spice Alley. 
-          Expect succulent Singapore chilli prawns, old school fried rice, and beautiful kechap manis squid in secret sauce.
+          Andiamo’s menu reflects our love for simple, great quality food that
+          is served with care. Italians understand that food is also memory. We
+          love to make great meals so that you can enjoy the experience and time
+          with your family, friends or on your own – in the company of the
+          village.
         </p>
+        <p>
+          Our Southern Italian style pizza is hand-prepared in artisan style and
+          Stonebaked to perfection. Our pasta sauces are slow-simmered and our
+          favourite rustic Italian specialties prepared with Nonna’s original
+          recipes. Bellissimo!
+        </p>
+      </div>
+
+      <div className="mb-4">
+        <p className="font-bold mb-2">Menu</p>
+        <a href="/assets/Andiamo_menu.pdf" download="Andiamo_Menu.pdf" className="underline">
+          Download Menu
+        </a>
       </div>
 
       <div className="mb-4">
         <p className="font-bold mb-2">FAVOURITES</p>
         <ul>
-          <li>Singapore chilli prawns</li>
-          <li>Kechap manis squid</li>
+          <li>Supreme</li>
+          <li>Meat Lovers Pizza</li>
         </ul>
       </div>
 
