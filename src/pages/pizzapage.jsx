@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AndiamoPage = () => {
+const pizzapage = () => {
   return (
     <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">
       <div className="flex justify-between items-center mb-4">
@@ -42,4 +42,4 @@ const AndiamoPage = () => {
   );
 };
 
-export default AndiamoPage;
+export default pizzapage;

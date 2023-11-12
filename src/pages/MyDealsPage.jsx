@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faCheckCircle, faTimesCircle, faCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import BroNavbar from '../components/BrokerNavigationBar';
-import AndiamoPage from '../pages/AndiamoPage';
+
 import GingerAndSpicePage from './GingerAndSpicePage';
+import AndiamoPage from './AndiamoPage';
 import ShanghaiDumplingPage from '../pages/ShanghaiDumplingPage';
 const dealsData = [
   {
