@@ -29,13 +29,13 @@ export const BrokerProfilePage = () => {
   const [editedEmail, setEditedEmail] = useState(profile.email);
   const [dob, setDob] = useState(new Date('2004-04-01'));
   const [showInviteFriends, setShowInviteFriends] = useState(false);
-  const [showPreference, setShowPreference] = useState(false);
 
   const openPopup = () => {
     setShowPopup(true);
   };
   const closePopup = () => {
     setShowPopup(false);
+    setIsSaved(false);
   };
   const openInviteFriendsPopup = () => {
     setShowInviteFriends(true);
@@ -43,13 +43,6 @@ export const BrokerProfilePage = () => {
 
   const closeInviteFriendsPopup = () => {
     setShowInviteFriends(false);
-  };
-  const openPreferencePopup = () => {
-    setShowPreference(true);
-  };
-
-  const closePreferencePopup = () => {
-    setShowPreference(false);
   };
   const handleSave = () => {
     setIsSaved(true);
