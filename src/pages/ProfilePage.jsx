@@ -326,7 +326,7 @@ export const ProfilePage = () => {
               <div className="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-50" onClick={closeInviteFriendsPopup}></div>
               <div className="relative bg-white w-full md:w-96 p-6 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <h1 className="text-2xl font-bold text-purple-700 mb-4">Your Dietary Requirements Preference</h1>
-                <h3 className="text-2xl font-bold text-yellow-400 mb-4">I'm restricted to:</h3>
+                <h3 className="text-2xl font-bold text-yellow-700 mb-4">I'm restricted to:</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <input
@@ -337,7 +337,7 @@ export const ProfilePage = () => {
                       checked={selectedDietaryRequirements.includes('vegan')}
                       onChange={handleDietaryRequirementChange}
                     />
-                    <label for="vegan">Vegan</label>
+                    <label for="vegan">   Vegan</label>
                   </div>
                   <div>
                     <input
@@ -348,7 +348,7 @@ export const ProfilePage = () => {
                       checked={selectedDietaryRequirements.includes('glutenFree')}
                       onChange={handleDietaryRequirementChange}
                     />
-                    <label for="glutenFree">Gluten-Free</label>
+                    <label for="glutenFree">   Gluten-Free</label>
                   </div>
                   <div>
                     <input
@@ -359,7 +359,7 @@ export const ProfilePage = () => {
                       checked={selectedDietaryRequirements.includes('dairyFree')}
                       onChange={handleDietaryRequirementChange}
                     />
-                    <label for="dairyFree">Dairy-Free</label>
+                    <label for="dairyFree">   Dairy-Free</label>
                   </div>
                   <div>
                     <input
@@ -370,7 +370,7 @@ export const ProfilePage = () => {
                       checked={selectedDietaryRequirements.includes('nutAllergy')}
                       onChange={handleDietaryRequirementChange}
                     />
-                    <label for="nutAllergy">Nut-Allergy</label>
+                    <label for="nutAllergy">   Nut-Allergy</label>
                   </div>
                   <div>
                     <input
@@ -381,7 +381,7 @@ export const ProfilePage = () => {
                       checked={selectedDietaryRequirements.includes('fishAllergy')}
                       onChange={handleDietaryRequirementChange}
                     />
-                    <label for="fishAllergy">Fish-Allergy</label>
+                    <label for="fishAllergy">   Fish-Allergy</label>
                   </div>
                   <div>
                     <input
@@ -392,14 +392,15 @@ export const ProfilePage = () => {
                       checked={selectedDietaryRequirements.includes('halal')}
                       onChange={handleDietaryRequirementChange}
                     />
-                    <label for="halal">Halal</label>
+                    <label for="halal">   Halal</label>
                   </div>
                 </div>
                 <div className="flex justify-center items-center">
+                
                   <button
                     type="button"
                     onClick={handleSave}
-                    class={`w-full mx-auto text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center ${
+                    class={`w-full mx-auto text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center m-4 ${
                       isSaved ? 'bg-green-500' : ''
                     }`}
                   >
