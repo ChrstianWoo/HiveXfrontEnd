@@ -4,9 +4,6 @@ import { faChevronDown, faCheckCircle, faTimesCircle, faCircle } from '@fortawes
 
 
 import BroNavbar from '../components/BrokerNavigationBar';
-
-
-
 const dealsData = [
   {
     name: 'Ginger and Spice',
