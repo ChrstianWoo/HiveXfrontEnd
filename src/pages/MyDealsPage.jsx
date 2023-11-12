@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faCheckCircle, faTimesCircle, faCircle } from '@fortawesome/free-solid-svg-icons';
-
-
+import { Link } from 'react-router-dom';
 import BroNavbar from '../components/BrokerNavigationBar';
 const dealsData = [
   {
@@ -88,9 +87,12 @@ export const MyDealsPage = () => {
                 {deal.conditions.split('\n').map((line, lineIndex) => (
                   <p key={lineIndex}>{line}</p>
                 ))}
-                <div className=" mt-2">
+                <div className=" flex justify-between mt-2">
                
                   <div className="text-sky-500 text-xs underline">See Progress</div>
+                  <Link to="/about-us" className="text-sky-500 text-xs underline ml-auto">
+                    About Us
+                  </Link>
                 </div>
               </div>
             )}
