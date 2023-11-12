@@ -139,6 +139,11 @@ export const AnalyticsPage = () => {
               >
                 See reviews
               </div>
+              <h6 
+                className='flex items-center justify-end text-xs underline'
+                onClick={() => toggleAccordion(index)}>
+                Venue Info
+              </h6>
               <FontAwesomeIcon
                 icon={faChevronDown}
                 className={`w-4 h-4 transition-transform transform ${
