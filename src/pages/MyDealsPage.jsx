@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faCheckCircle, faTimesCircle, faCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import BroNavbar from '../components/BrokerNavigationBar';
+import AndiamoPage from '../pages/AndiamoPage';
+import GingerAndSpicePage from './GingerAndSpicePage';
+import ShanghaiDumplingPage from '../pages/ShanghaiDumplingPage';
 const dealsData = [
   {
     name: 'Ginger and Spice',
@@ -11,6 +14,7 @@ const dealsData = [
     conditions: 'Entry before 2 pm\nDine in only\nMaximum of 3 patrons',
     deal: '20% off pizza',
     status: true, // true for green circle, false for red circle
+    pageLink: '/deals/ginger-and-spice', 
   },
   {
     name: 'Andiamo',
@@ -19,6 +23,8 @@ const dealsData = [
     conditions: 'Entry before 2 pm\nDine in only\nMaximum of 3 patrons',
     deal: '50% off pizza',
     status: false, 
+    pageLink: '/deals/andiamo', 
+
   },
   {
     name: 'Shanghai Dumpling Bar',
@@ -27,6 +33,8 @@ const dealsData = [
     conditions: 'Must spend $10',
     deal: '50% off Dumplings',
     status: null, // null for pending status
+    pageLink: '/deals/shanghai-dumpling', 
+
   },
 ];
 
@@ -90,7 +98,7 @@ export const MyDealsPage = () => {
                 <div className=" flex justify-between mt-2">
                
                   <div className="text-sky-500 text-xs underline">See Progress</div>
-                  <Link to="/about-us" className="text-sky-500 text-xs underline ml-auto">
+                  <Link to={deal.pageLink}  className="text-sky-500 text-xs underline ml-auto">
                     About Us
                   </Link>
                 </div>
