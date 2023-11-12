@@ -56,13 +56,20 @@ export const BrokeDealPage = () => {
           className="w-full h-40 border rounded-md p-2 mt-2"
           placeholder="Write Description"
         ></textarea>
+        <div className="flex justify-center items-center mt-2">
+          <input
+            type="text"
+            className="w-50 h-10 border rounded-md p-2 text-center"
+            placeholder="Amount of Coupons"
+          />
+        </div>
 
         <div className="flex justify-center items-center mt-2">
           <DatePicker
             selected={validUntil}
             onChange={(date) => setValidUntil(date)}
             placeholderText="Valid Until"
-            className="w-40 h-10 border rounded-md p-2 text-center"
+            className="w-50 h-10 border rounded-md p-2 text-center"
           />
         </div>
 
