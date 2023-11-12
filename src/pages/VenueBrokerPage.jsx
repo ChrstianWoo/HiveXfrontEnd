@@ -75,7 +75,12 @@ export const VenueBrokerPage = () => {
                 {deal.reviewsLink}
               </div>
               <div className="flex items-center">
-                <FontAwesomeIcon
+              <h6 
+                className='flex items-center justify-center text-xs underline'
+                onClick={() => toggleAccordion(index)}>
+                Venue Info
+              </h6>
+              <FontAwesomeIcon
                   icon={faChevronDown}
                   className={`w-4 h-4 transition-transform transform ${
                     accordionOpen[index] ? "rotate-180" : ""
