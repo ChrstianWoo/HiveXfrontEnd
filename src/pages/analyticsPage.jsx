@@ -98,7 +98,7 @@ export const AnalyticsPage = () => {
                         label: 'Coupon Usage vs. Span of Validity',
                         data: deal.spanOfValidityData,
                         fill: false,
-                        borderColor: 'rgb(75, 192, 192)',
+                        borderColor: '#E7B0F8',
                         tension: 0.1,
                       },
                     ],

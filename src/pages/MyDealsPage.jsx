@@ -11,7 +11,7 @@ const dealsData = [
   {
     name: 'Ginger and Spice',
     image: '/assets/ginger and spice.png',
-    reviewsLink: 'Reviews',
+    reviewsLink: 'See reviews',
     conditions: 'Entry before 2 pm\nDine in only\nMaximum of 3 patrons',
     deal: '20% off pizza',
     status: true, // true for green circle, false for red circle
@@ -19,7 +19,7 @@ const dealsData = [
   {
     name: 'Andiamo',
     image: '/assets/andiamo.png',
-    reviewsLink: 'Reviews',
+    reviewsLink: 'See reviews',
     conditions: 'Entry before 2 pm\nDine in only\nMaximum of 3 patrons',
     deal: '50% off pizza',
     status: false, 
@@ -27,7 +27,7 @@ const dealsData = [
   {
     name: 'Shanghai Dumpling Bar',
     image: '/assets/Shanghai Dumpling Bar.png',
-    reviewsLink: 'Reviews',
+    reviewsLink: 'See reviews',
     conditions: 'Must spend $10',
     deal: '50% off Dumplings',
     status: null, // null for pending status
@@ -55,9 +55,14 @@ export const MyDealsPage = () => {
           <div key={index} className="bg-white rounded shadow mb-6 p-4">
             <div className="flex items-center mb-2">
               <img src={deal.image} alt={deal.name} className="rounded-full w-10 h-10 mr-4" />
-              <div className="text-sm font-bold">{deal.name}</div>
+              <div>
+                <div className="text-sm font-bold">{deal.name}</div>
+                {/* Move the deal rendering here */}
+                <p className="text-xs text-gray-500">{deal.deal}</p>
+              </div>
             </div>
             <div className="flex justify-between items-center cursor-pointer">
+          
               <div className="text-sky-500 text-xs underline">{deal.reviewsLink}</div>
               <div className="flex items-center">
                 {deal.status !== null ? (
@@ -86,11 +91,10 @@ export const MyDealsPage = () => {
                 {deal.conditions.split('\n').map((line, lineIndex) => (
                   <p key={lineIndex}>{line}</p>
                 ))}
-                <div className="flex justify-between items-center mt-2">
-                  <div className="font-bold">Deal</div>
+                <div className=" mt-2">
+               
                   <div className="text-sky-500 text-xs underline">See Progress</div>
                 </div>
-                <p>{deal.deal}</p>
               </div>
             )}
           </div>
