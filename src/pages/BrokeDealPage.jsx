@@ -13,6 +13,7 @@ export const BrokeDealPage = () => {
 
     setSelectedImage(imageUrl);
   };
+  
   useEffect(() => {
     // (Jack Api)
     const script = document.createElement("script");

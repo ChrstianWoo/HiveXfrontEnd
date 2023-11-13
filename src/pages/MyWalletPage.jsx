@@ -21,6 +21,8 @@ const ReviewsPopup = ({ isOpen, onClose }) => {
     setSelectedStars(stars);
   };
   if (!isOpen) return null;
+
+  
   return (
     // Your Google reviews content goes here
     <div className="popup flex items-center justify-center">
@@ -180,7 +182,25 @@ export const MyWalletPage = () => {
   const handleSubmit = () => {
     setIsSubmit(true);
   };
-  
+  useEffect(() => {
+    // (Jack Api)
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDbmf_oibOuPXvtR11eQJiFcvY148s_Aow&callback=initMap&libraries=&v=weekly`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.initMap = () => {
+      const sydneyOperaHouse = { lat: -33.8568, lng: 151.2153 };
+      const map = new window.google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: sydneyOperaHouse,
+      });
+    };
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
   return (
     <div className="bg-gray-100 h-screen">
       <Navbar />
@@ -279,12 +299,9 @@ export const MyWalletPage = () => {
                       See reviews
                     </div>
                     {/* Include the Coupon Usage vs. Span of Validity section here */}
-                    <div className="font-bold mt-2">Coupon Usage vs. Span of Validity</div>
-                    <img
-                      className="w-full h-auto"
-                      src="https://via.placeholder.com/282x152"
-                      alt="Graph"
-                    />
+                    <div className="h-64 w-96 bg-gray-100 flex items-center justify-center mx-auto mt-4">
+                      <div id="map" className="h-full w-full"></div>
+                    </div>
                   </div>
                 )}
                 <ReviewsPopup
@@ -332,12 +349,9 @@ export const MyWalletPage = () => {
                       See reviews
                     </div>
                     {/* Include the Coupon Usage vs. Span of Validity section here */}
-                    <div className="font-bold mt-2">Coupon Usage vs. Span of Validity</div>
-                    <img
-                      className="w-full h-auto"
-                      src="https://via.placeholder.com/282x152"
-                      alt="Graph"
-                    />
+                    <div className="h-64 w-96 bg-gray-100 flex items-center justify-center mx-auto mt-4">
+                      <div id="map" className="h-full w-full"></div>
+                    </div>
                   </div>
                 )}
                 <ReviewsPopup
@@ -385,12 +399,9 @@ export const MyWalletPage = () => {
                         See reviews
                       </div>
                       {/* Include the Coupon Usage vs. Span of Validity section here */}
-                      <div className="font-bold mt-2">Coupon Usage vs. Span of Validity</div>
-                      <img
-                        className="w-full h-auto"
-                        src="https://via.placeholder.com/282x152"
-                        alt="Graph"
-                      />
+                      <div className="h-64 w-96 bg-gray-100 flex items-center justify-center mx-auto mt-4">
+                        <div id="map" className="h-full w-full"></div>
+                      </div>
                     </div>
                   )}
                   <ReviewsPopup
