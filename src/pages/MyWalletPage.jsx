@@ -264,9 +264,9 @@ export const MyWalletPage = () => {
               className={`bg-gray-50 p-4 rounded-lg dark:bg-gray-800 ${
                 activeTab === "history" ? "" : "hidden"
               }`}
-              id="myVoucher"
+              id="history"
               role="tabpanel"
-              aria-labelledby="myVoucher-tab"
+              aria-labelledby="history-tab"
             >
              {[1].map((_, index) => (
               <div key={index} className="bg-white rounded shadow mb-6 p-4">
@@ -363,11 +363,11 @@ export const MyWalletPage = () => {
             </div>
             <div
               className={`bg-gray-50 p-4 rounded-lg dark:bg-gray-800 ${
-                activeTab === "history" ? "hidden" : ""
+                activeTab === "myVoucher" ? "" : "hidden"
               }`}
-              id="history"
+              id="myVoucher"
               role="tabpanel"
-              aria-labelledby="history-tab"
+              aria-labelledby="myVoucher-tab"
             >
               {[1].map((_, index) => (
                 <div key={index} className="bg-white rounded shadow mb-6 p-4">
