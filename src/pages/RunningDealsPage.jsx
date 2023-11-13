@@ -7,7 +7,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const dealsData = [
   {
-    name: "Adiamo",
+    name: "Andiamo",
     image: "/assets/andiamo.png",
     couponDetails: "Discount Up to 10%",
     validity: "Valid Until November 30, 2023",
