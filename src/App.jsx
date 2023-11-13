@@ -16,8 +16,7 @@ import { MyVenuePage } from './pages/MyVenuePage';
 import { DealsApprovingPage } from './pages/DealsApprovingPage';
 import { RunningDealsPage } from './pages/RunningDealsPage';
 import { BrokerDashboard } from './pages/BrokerDashboard';
-import MyDealsPage from './pages/MyDealsPage';
-
+import { MyDealsPage } from './pages/MyDealsPage';
 import { AnalyticsPage } from './pages/analyticsPage';
 import { VenueBrokerPage } from './pages/VenueBrokerPage';
 import { InvVenuePage } from './pages/InvVenuePage';

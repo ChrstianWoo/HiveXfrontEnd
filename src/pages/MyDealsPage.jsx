@@ -40,8 +40,6 @@ const dealsData = [
 
 export const MyDealsPage = () => {
   const [accordionOpen, setAccordionOpen] = useState(Array(dealsData.length).fill(false));
-
-
   const toggleAccordion = (index) => {
     setAccordionOpen((prev) => {
       const newState = [...prev];
@@ -115,7 +113,7 @@ export const MyDealsPage = () => {
                     } h-2.5 rounded-full dark:${
                       deal.status === true ? 'bg-purple-500' : deal.status === false ? 'bg-red-500' : 'bg-yellow-500'
                     }`}
-                    style={{ width: deal.status === true ? '100%' : deal.status === false ? '70%' : '45%' }}
+                    style={{ width: deal.status === true ? '100%' : deal.status === false ? '65%' : '30%' }}
                   ></div>
                 </div>
               </div>
