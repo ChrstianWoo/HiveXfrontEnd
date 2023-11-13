@@ -6,7 +6,7 @@ export const memberNavigation = [
     },
     {   
         name: 'My Wallet',
-        href: 'http://localhost:3000/',
+        href: 'my-wallet',
         current: false 
     },
     { 

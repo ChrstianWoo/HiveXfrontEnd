@@ -27,7 +27,7 @@ export const LoginPage = (loginPageProps) => {
         setError('');
         loginPageProps.handleLogin();
         if (user.accountType === 'member') {
-          navigate('/');
+          navigate('/my-wallet');
         } else if (user.accountType === 'broker') {
           navigate('/my-deals');
         } else if (user.accountType === 'venue') {

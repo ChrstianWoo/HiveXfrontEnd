@@ -70,7 +70,7 @@ function App() {
           }
         />
       <Route path="/login" element={<LoginPage handleLogin={handleLogin} />} />
-      <Route path="/" element={<MyWalletPage />} />
+      <Route path="/my-wallet" element={<MyWalletPage />} />
       <Route path="/forgot-pass" element={<ForgotPasswordPage />} />
       <Route path="/venue-email-register" element={<VenueEmailRegistration />} />
       <Route path="/logout" element={<LogOutPage />} />
