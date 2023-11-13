@@ -319,7 +319,7 @@ export const MyWalletPage = () => {
               role="tabpanel"
               aria-labelledby="myOffers-tab"
             >
-              {[1, 2, 3].map((_, index) => (
+              {[1].map((_, index) => (
               <div key={index} className="bg-white rounded shadow mb-6 p-4">
                 <div className="flex items-center mb-2">
                   {/* Add image here */}
@@ -369,7 +369,7 @@ export const MyWalletPage = () => {
               role="tabpanel"
               aria-labelledby="history-tab"
             >
-              {[1, 2].map((_, index) => (
+              {[1].map((_, index) => (
                 <div key={index} className="bg-white rounded shadow mb-6 p-4">
                   <div className="flex items-center mb-2">
                     {/* Add image here */}
