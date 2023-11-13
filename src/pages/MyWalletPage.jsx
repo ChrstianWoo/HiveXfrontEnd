@@ -6,9 +6,12 @@ export const MyWalletPage = () => {
   const [activeTab, setActiveTab] = useState("myVoucher"); // Initialize the active tab as 'dashboard'
   const [showPopup, setShowPopup] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false);
-  const [couponCode, setCouponCode] = useState("");
-  const validCoupons = ["password", "1stcoupon", "coupon123"];
-  
+  const [showRemovePopup, setShowRemovePopup] = useState(false);
+  const generateCouponCode = () => {
+    const code = Math.floor(1000 + Math.random() * 9000);
+    return code.toString();
+  };
+  const [couponCode, setCouponCode] = useState(generateCouponCode());
   
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -21,22 +24,26 @@ export const MyWalletPage = () => {
       return newState;
     });
   };
+  
   const openPopup = () => {
+    setCouponCode(generateCouponCode());
     setShowPopup(true);
   };
   const closePopup = () => {
     setShowPopup(false);
     setIsSubmit(false);
-    setCouponCode("");
+  };
+  const openRemovePopup = () => {
+    setShowRemovePopup(true);
+  };
+  const closeRemovePopup = () => {
+    setShowRemovePopup(false);
+    setIsSubmit(false);
   };
   const handleSubmit = () => {
-    setIsSubmit(false); 
-    if (validCoupons.includes(couponCode.toLowerCase())) {
-      setIsSubmit(true);
-    } else {
-      setIsSubmit(false);
-    }
+    setIsSubmit(true);
   };
+  
   return (
     <div className="bg-gray-100 h-screen">
       <Navbar />
@@ -46,11 +53,6 @@ export const MyWalletPage = () => {
         </h1>
         
         <div className="flex flex-col justify-center max-w-2xl mx-auto">
-          <center>
-            <a onClick={openPopup} className="btn btn-animation">
-              Coupon Redemption
-            </a>
-          </center>
           <div className="  border-b border-gray-200 dark:border-gray-700 mb-4">
           <ul className="flex flex-wrap -mb-px" id="myTab" role="tablist">
             <li className="mr-2" role="presentation">
@@ -65,7 +67,7 @@ export const MyWalletPage = () => {
                 aria-controls="myVoucher"
                 aria-selected={activeTab === "myVoucher"}
               >
-                My Vouchers
+                Close to Expiry Vouchers
               </button>
             </li>
             <li className="mr-2" role="presentation">
@@ -80,7 +82,7 @@ export const MyWalletPage = () => {
                 aria-controls="settings"
                 aria-selected={activeTab === "myOffers"}
               >
-                My Offers
+                Available Voucher
               </button>
             </li>
             <li role="presentation">
@@ -103,20 +105,20 @@ export const MyWalletPage = () => {
           <div id="myTabContent">
             <div
               className={`bg-gray-50 p-4 rounded-lg dark:bg-gray-800 ${
-                activeTab === "myVoucher" ? "hidden" : ""
+                activeTab === "history" ? "" : "hidden"
               }`}
               id="myVoucher"
               role="tabpanel"
               aria-labelledby="myVoucher-tab"
             >
-             {[1, 2, 3].map((_, index) => (
+             {[1].map((_, index) => (
               <div key={index} className="bg-white rounded shadow mb-6 p-4">
                 <div className="flex items-center mb-2">
                   {/* Add image here */}
                   <div className="text-sm font-bold">Name of Venue</div>
                 </div>
                 <div className="flex justify-between items-center cursor-pointer">
-                  <div className="text-sky-500 text-xs underline">See reviews</div>
+                  <div onClick={openRemovePopup} className="text-sky-500 text-xs underline">Remove</div>
                   <FontAwesomeIcon
                     icon={faChevronDown}
                     className={`w-4 h-4 transition-transform transform ${
@@ -153,14 +155,14 @@ export const MyWalletPage = () => {
               role="tabpanel"
               aria-labelledby="myOffers-tab"
             >
-              {[1, 2].map((_, index) => (
+              {[1, 2, 3].map((_, index) => (
               <div key={index} className="bg-white rounded shadow mb-6 p-4">
                 <div className="flex items-center mb-2">
                   {/* Add image here */}
                   <div className="text-sm font-bold">Name of Venue</div>
                 </div>
                 <div className="flex justify-between items-center cursor-pointer">
-                  <div className="text-sky-500 text-xs underline">See reviews</div>
+                  <div onClick={openPopup} className="text-sky-500 text-xs underline">Use Voucher</div>
                   <FontAwesomeIcon
                     icon={faChevronDown}
                     className={`w-4 h-4 transition-transform transform ${
@@ -187,7 +189,7 @@ export const MyWalletPage = () => {
                   </div>
                 )}
               </div>
-            ))}
+              ))}
             </div>
             <div
               className={`bg-gray-50 p-4 rounded-lg dark:bg-gray-800 ${
@@ -197,14 +199,14 @@ export const MyWalletPage = () => {
               role="tabpanel"
               aria-labelledby="history-tab"
             >
-              {[1].map((_, index) => (
+              {[1, 2].map((_, index) => (
                 <div key={index} className="bg-white rounded shadow mb-6 p-4">
                   <div className="flex items-center mb-2">
                     {/* Add image here */}
                     <div className="text-sm font-bold">Name of Venue</div>
                   </div>
                   <div className="flex justify-between items-center cursor-pointer">
-                    <div className="text-sky-500 text-xs underline">See reviews</div>
+                    <div  onClick={openPopup} className="text-sky-500 text-xs underline">Use Voucher</div>
                     <FontAwesomeIcon
                       icon={faChevronDown}
                       className={`w-4 h-4 transition-transform transform ${
@@ -248,14 +250,9 @@ export const MyWalletPage = () => {
                       <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Coupon Code
                       </label>
-                      <input
-                        type="text"
-                        name="couponCode"
-                        placeholder="Enter coupon code"
-                        value={couponCode}
-                        onChange={(e) => setCouponCode(e.target.value)}
-                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      />
+                      <center>
+                        <p className=" text-gray-900 sm:text-5xl center rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{couponCode} </p>
+                      </center>
                     </div>
                     <hr className="my-4" />
                     <button
@@ -265,17 +262,51 @@ export const MyWalletPage = () => {
                         isSubmit ? 'bg-green-500' : ''
                       }`}
                     >
-                      Submit
+                      {isSubmit ? "Used" : "Use" }
                     </button>
                     <hr className="my-2" />
                     {isSubmit ? (
-                      <p className={validCoupons.includes(couponCode.toLowerCase()) ? "text-green-500" : null}>
-                        {validCoupons.includes(couponCode.toLowerCase()) ? "Coupon Applied Successfully!" : null}
-                      </p>
+                      <p className="text-green-500"> Coupon used Successfully!</p>
                     ) : null}
                   </div>
                   <button
                     onClick={closePopup}
+                    className="absolute top-2 right-2 text-purple-700 font-bold text-xl cursor-pointer focus:outline-none"
+                  >
+                    &#x2716;
+                  </button>
+                </div>
+              </div>
+            )}
+            {showRemovePopup && (
+              <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
+                <div
+                  className="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-50"
+                  onClick={closeRemovePopup}
+                ></div>
+                <div className="relative bg-white w-full md:w-1/2 lg:w-1/2 p-6 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                  <h1 className="text-2xl font-bold text-purple-700 mb-4">
+                    Coupon Removal
+                  </h1>
+                  <div className="flex flex-col justify-center items-center">
+                    <p>Are you sure you want to remove this voucher? </p>
+                    <hr className="my-4"/>
+                    <button
+                      type="button"
+                      onClick={handleSubmit}
+                      className={`w-full mx-auto text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center ${
+                        isSubmit ? 'bg-green-500' : ''
+                      }`}
+                    >
+                      {isSubmit ? "Removed" : "Remove" }
+                    </button>
+                    <hr className="my-2" />
+                    {isSubmit ? (
+                      <p className="text-red-500"> Coupon Been Removed Successfully!</p>
+                    ) : null}
+                  </div>
+                  <button
+                    onClick={closeRemovePopup}
                     className="absolute top-2 right-2 text-purple-700 font-bold text-xl cursor-pointer focus:outline-none"
                   >
                     &#x2716;
