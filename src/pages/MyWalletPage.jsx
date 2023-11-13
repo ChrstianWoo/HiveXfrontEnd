@@ -224,7 +224,7 @@ export const MyWalletPage = () => {
                 aria-controls="myVoucher"
                 aria-selected={activeTab === "myVoucher"}
               >
-                Close to Expiry Vouchers
+                Avalible Offers
               </button>
             </li>
             <li className="mr-2" role="presentation">
@@ -376,7 +376,7 @@ export const MyWalletPage = () => {
                     <div className="text-sm font-bold">Name of Venue</div>
                   </div>
                   <div className="flex justify-between items-center cursor-pointer">
-                    <div  onClick={openPopup} className="text-sky-500 text-xs underline">Use Voucher</div>
+                    <div  onClick={openPopup} className="text-sky-500 text-xs underline">Accept Voucher</div>
                     <FontAwesomeIcon
                       icon={faChevronDown}
                       className={`w-4 h-4 transition-transform transform ${
@@ -442,7 +442,7 @@ export const MyWalletPage = () => {
                     </button>
                     <hr className="my-2" />
                     {isSubmit ? (
-                      <p className="text-green-500"> Coupon used Successfully!</p>
+                      <p className="text-green-500"> Coupon Used Successfully!</p>
                     ) : null}
                   </div>
                   <button
