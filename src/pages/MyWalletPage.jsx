@@ -478,7 +478,7 @@ export const MyWalletPage = () => {
                     </button>
                     <hr className="my-2" />
                     {isSubmit ? (
-                      <p className="text-red-500"> Coupon Been Removed Successfully!</p>
+                      <p className="text-red-500"> Coupon Has Been Removed Successfully!</p>
                     ) : null}
                   </div>
                   <button
