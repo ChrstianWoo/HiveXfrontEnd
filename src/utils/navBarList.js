@@ -18,6 +18,11 @@ export const memberNavigation = [
 
   
 export const venueNavigation = [
+    { 
+        name: 'Redeem',
+        href: 'coupon-accept', 
+        current: false
+    },
     {   
         name: 'My Venue',
         href: "my-venue",

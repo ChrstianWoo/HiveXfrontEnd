@@ -24,6 +24,10 @@ import { DealsApprovedLivePage } from './pages/DealsApprovedLivePage';
 import { RunningDealsPaused } from './pages/RunningDealsPaused';
 import { BrokeDealPage } from './pages/BrokeDealPage';
 import { BrokerProfilePage } from './pages/BrokerProfilePage';
+import AndiamoPage from './pages/AndiamoPage';
+import GingerAndSpicePage from './pages/GingerAndSpicePage';
+import ShanghaiDumplingPage from './pages/ShanghaiDumplingPage';
+import VenueCouponAccept from './pages/Venuecouponaccept';
 
 const ProtectedRoute = ({ isLoggedIn, redirectPath = '/login', children }) => {
   console.log(isLoggedIn);
@@ -87,6 +91,10 @@ function App() {
       <Route path="/inv-venue" element={<InvVenuePage />} />
       <Route path="/broke-deal" element={<BrokeDealPage/>} />
       <Route path="/broker-profile-page" element ={<BrokerProfilePage/>} />
+      <Route path="/deals/Andiamo" element={<AndiamoPage />} />
+      <Route path="/deals/ginger-and-spice" element={<GingerAndSpicePage />} />
+      <Route path="/deals/shanghai-dumpling" element={<ShanghaiDumplingPage />} />
+      <Route path="/coupon-accept" element={<VenueCouponAccept />} />
     </Routes>
   );
 }
