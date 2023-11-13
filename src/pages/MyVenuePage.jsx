@@ -45,7 +45,8 @@ export const MyVenuePage = () => {
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
 
-  };const openReviewPopup = () => {
+  };
+  const openReviewPopup = () => {
     setShowReview(true);
   };
 

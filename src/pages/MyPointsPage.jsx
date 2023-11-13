@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import Navbar from '../components/NavigationBar';
 import './MyPointsPage.css';
 import 'boxicons/css/boxicons.min.css';
-
-
   
 const ProgressBar = ({ percentage }) => {
   return (

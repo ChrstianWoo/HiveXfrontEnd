@@ -4,7 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 export const MyWalletPage = () => {
   const [activeTab, setActiveTab] = useState("myVoucher"); // Initialize the active tab as 'dashboard'
-
+  const [showPopup, setShowPopup] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [couponCode, setCouponCode] = useState("");
+  const validCoupons = ["password", "1stcoupon", "coupon123"];
+  
+  
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
@@ -16,6 +21,22 @@ export const MyWalletPage = () => {
       return newState;
     });
   };
+  const openPopup = () => {
+    setShowPopup(true);
+  };
+  const closePopup = () => {
+    setShowPopup(false);
+    setIsSubmit(false);
+    setCouponCode("");
+  };
+  const handleSubmit = () => {
+    setIsSubmit(false); 
+    if (validCoupons.includes(couponCode.toLowerCase())) {
+      setIsSubmit(true);
+    } else {
+      setIsSubmit(false);
+    }
+  };
   return (
     <div className="bg-gray-100 h-screen">
       <Navbar />
@@ -23,55 +44,61 @@ export const MyWalletPage = () => {
         <h1 class="MyWallet">
           My Wallet
         </h1>
-        <div className="max-w-2xl mx-auto">
-          <div className="border-b border-gray-200 dark:border-gray-700 mb-4">
-            <ul className="flex flex-wrap -mb-px" id="myTab" role="tablist">
-              <li className="mr-2" role="presentation">
-                <button
-                  className={`inline-block text-gray-500 hover:text-gray-600 border-b-2 border-transparent rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent ${
-                    activeTab === "myVoucher"
-                      ? "text-purple-800 border-purple-800"
-                      : ""
-                  }`}
-                  onClick={() => handleTabClick("myVoucher")}
-                  role="tab"
-                  aria-controls="myVoucher"
-                  aria-selected={activeTab === "myVoucher"}
-                >
-                  My Vouchers
-                </button>
-              </li>
-              <li className="mr-2" role="presentation">
-                <button
-                  className={`inline-block text-gray-500 hover:text-gray-600 border-b-2 border-transparent rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent ${
-                    activeTab === "myOffers"
-                      ? "text-purple-800 border-purple-800"
-                      : ""
-                  }`}
-                  onClick={() => handleTabClick("myOffers")}
-                  role="tab"
-                  aria-controls="settings"
-                  aria-selected={activeTab === "myOffers"}
-                >
-                  My Offers
-                </button>
-              </li>
-              <li role="presentation">
-                <button
-                  className={`inline-block text-gray-500 hover:text-gray-600 border-b-2 border-transparent rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent ${
-                    activeTab === "history"
-                      ? "text-purple-800 border-purple-800"
-                      : ""
-                  }`}
-                  onClick={() => handleTabClick("history")}
-                  role="tab"
-                  aria-controls="history"
-                  aria-selected={activeTab === "history"}
-                >
-                  History
-                </button>
-              </li>
-            </ul>
+        
+        <div className="flex flex-col justify-center max-w-2xl mx-auto">
+          <center>
+            <a onClick={openPopup} className="btn btn-animation">
+              Coupon Redemption
+            </a>
+          </center>
+          <div className="  border-b border-gray-200 dark:border-gray-700 mb-4">
+          <ul className="flex flex-wrap -mb-px" id="myTab" role="tablist">
+            <li className="mr-2" role="presentation">
+              <button
+                className={`inline-block text-gray-500 hover:text-gray-600 border-b-2 border-transparent rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent ${
+                  activeTab === "myVoucher"
+                    ? "text-purple-800 border-purple-800"
+                    : ""
+                }`}
+                onClick={() => handleTabClick("myVoucher")}
+                role="tab"
+                aria-controls="myVoucher"
+                aria-selected={activeTab === "myVoucher"}
+              >
+                My Vouchers
+              </button>
+            </li>
+            <li className="mr-2" role="presentation">
+              <button
+                className={`inline-block text-gray-500 hover:text-gray-600 border-b-2 border-transparent rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent ${
+                  activeTab === "myOffers"
+                    ? "text-purple-800 border-purple-800"
+                    : ""
+                }`}
+                onClick={() => handleTabClick("myOffers")}
+                role="tab"
+                aria-controls="settings"
+                aria-selected={activeTab === "myOffers"}
+              >
+                My Offers
+              </button>
+            </li>
+            <li role="presentation">
+              <button
+                className={`inline-block text-gray-500 hover:text-gray-600 border-b-2 border-transparent rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent ${
+                  activeTab === "history"
+                    ? "text-purple-800 border-purple-800"
+                    : ""
+                }`}
+                onClick={() => handleTabClick("history")}
+                role="tab"
+                aria-controls="history"
+                aria-selected={activeTab === "history"}
+              >
+                History
+              </button>
+            </li>
+          </ul>
           </div>
           <div id="myTabContent">
             <div
@@ -206,6 +233,56 @@ export const MyWalletPage = () => {
                 </div>
               ))}
             </div>
+            {showPopup && (
+              <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
+                <div
+                  className="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-50"
+                  onClick={closePopup}
+                ></div>
+                <div className="relative bg-white w-full md:w-1/2 lg:w-1/3 p-6 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                  <h1 className="text-2xl font-bold text-purple-700 mb-4">
+                    Coupon Redemption
+                  </h1>
+                  <div className="flex flex-col justify-center items-center">
+                    <div className="space-y-4 md:space-y-3">
+                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Coupon Code
+                      </label>
+                      <input
+                        type="text"
+                        name="couponCode"
+                        placeholder="Enter coupon code"
+                        value={couponCode}
+                        onChange={(e) => setCouponCode(e.target.value)}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      />
+                    </div>
+                    <hr className="my-4" />
+                    <button
+                      type="button"
+                      onClick={handleSubmit}
+                      className={`w-full mx-auto text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center ${
+                        isSubmit ? 'bg-green-500' : ''
+                      }`}
+                    >
+                      Submit
+                    </button>
+                    <hr className="my-2" />
+                    {isSubmit ? (
+                      <p className={validCoupons.includes(couponCode.toLowerCase()) ? "text-green-500" : null}>
+                        {validCoupons.includes(couponCode.toLowerCase()) ? "Coupon Applied Successfully!" : null}
+                      </p>
+                    ) : null}
+                  </div>
+                  <button
+                    onClick={closePopup}
+                    className="absolute top-2 right-2 text-purple-700 font-bold text-xl cursor-pointer focus:outline-none"
+                  >
+                    &#x2716;
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
