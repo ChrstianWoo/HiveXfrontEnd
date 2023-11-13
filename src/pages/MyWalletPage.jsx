@@ -20,7 +20,7 @@ export const MyWalletPage = () => {
     <div className="bg-gray-100 h-screen">
       <Navbar />
       <div className="container mt-5">
-        <h1 class="MyWallet w-60 h-24 mx-auto text-black text-2xl font-bold">
+        <h1 class="MyWallet">
           My Wallet
         </h1>
         <div className="max-w-2xl mx-auto">
