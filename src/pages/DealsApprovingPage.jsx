@@ -299,7 +299,7 @@ export const DealsApprovingPage = () => {
                   selected={startDate}
                   onChange={(date) => setstartDate(date)}
                   dateFormat="MMMM d, yyyy"
-                  className="border rounded px-4 py-2"
+                  className="border rounded px-4 py-2 text-sm w-full"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -308,7 +308,7 @@ export const DealsApprovingPage = () => {
                   selected={endDate}
                   onChange={(date) => setEndDate(date)}
                   dateFormat="MMMM d, yyyy"
-                  className="border rounded px-4 py-2"
+                  className="border rounded px-4 py-2 text-sm w-full"
                 />
               </div>
             </div>
