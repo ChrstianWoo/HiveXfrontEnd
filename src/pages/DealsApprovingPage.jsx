@@ -65,7 +65,10 @@ export const DealsApprovingPage = () => {
       <VenueNavbar />
       <div className="container mt-5">
         <div className="flex flex-col min-h-screen justify-center items-center px-6 py-8 mx-auto lg:py-0">
-          <div className="flex justify-center bg-white rounded-lg text-2xl px-4 py-2 md:mt-0 sm:max-w-md xl:p-0 shadow-lg font-bold mb-2">
+          <div
+            className="flex justify-center text-2xl px-4 py-2 md:mt-0 sm:max-w-md xl:p-0 shadow-lg font-bold mb-2"
+            style={{ border: "none" }}
+          >
             Deals to Approve
           </div>
           <div className="flex flex-row space-x-4">
