@@ -20,7 +20,7 @@ export const InvVenuePage = () => {
     <div className="bg-gray-100">
       <BroNavbar />
       <div className="container mt-5">
-        <h1>Invite Venue to HiveX</h1>
+        <h1>Invite Venue</h1>
       </div>
 
       <div className="container">
@@ -90,6 +90,29 @@ export const InvVenuePage = () => {
               />
             )}
           </div>
+
+          <div className="box text-center">
+            <label htmlFor="imageInput" className="cursor-pointer">
+              <input
+                type="file"
+                id="imageInput"
+                className="hidden"
+                onChange={handleImageChange}
+              />
+              <div className="mx-auto w-40 h-20 border rounded-md p-2 text-gray-400 hover:text-yellow-400 bg-white hover:bg-purple-700 flex items-center justify-center">
+                <p className="mx-auto">Add Menu</p>
+              </div>
+            </label>
+            {selectedImage && (
+              <img
+                src={selectedImage}
+                alt="Selected"
+                className="mt-2 rounded-md max-w-full mx-auto"
+                style={{ maxWidth: "200px" }}
+              />
+            )}
+          </div>
+
         </div>
       </div>
 
