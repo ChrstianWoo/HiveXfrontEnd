@@ -41,8 +41,13 @@ export const BrokeDealPage = () => {
         <h1 className="font-bold">Broker Deal</h1>
         <h2 className="text-center text-4xl">Coupon Details</h2>
 
-        <p className="text-center mt-2">Prefilled Venue Name</p>
-
+        <div className="flex justify-center items-center mt-2">
+          <input
+            type="text"
+            className="w-50 h-10 border rounded-md p-2 text-center"
+            placeholder="Venue Name"
+          />
+        </div>
         <div className="h-64 w-96 bg-gray-100 flex items-center justify-center mx-auto mt-4">
           <div id="map" className="h-full w-full"></div>
         </div>
@@ -74,28 +79,7 @@ export const BrokeDealPage = () => {
           />
         </div>
 
-        <div className="flex justify-center items-center flex-col mt-2">
-          <label htmlFor="imageInput" className="cursor-pointer">
-            <input
-              type="file"
-              id="imageInput"
-              className="hidden"
-              onChange={handleImageChange}
-            />
-            <div className="flex items-center justify-center w-40 h-20 border rounded-md p-2 text-center text-gray-400 hover:text-yellow-400 bg-white hover:bg-purple-700">
-              <p>Add Image</p>
-            </div>
-          </label>
-
-          {selectedImage && (
-            <img
-              src={selectedImage}
-              alt="Selected"
-              className="mt-2 rounded-md max-w-full"
-              style={{ maxWidth: "200px" }}
-            />
-          )}
-        </div>
+      
         <div className="flex justify-between items-center mt-2">
           <div>
             <p>Restaurant Details</p>
